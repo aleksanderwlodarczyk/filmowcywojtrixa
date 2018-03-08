@@ -5,7 +5,8 @@ using UnityEngine;
 public class CamEffect : MonoBehaviour {
 
 	private EffectsControlling camera;
-	public float fishEyeValue;
+	public float value;
+	public int effect;
 
 	void Start(){
 		camera = GameObject.Find ("Main Camera").GetComponent<EffectsControlling> ();
@@ -14,7 +15,7 @@ public class CamEffect : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 
 		if (other.gameObject.tag == "Player") {
-			camera.ChangeFisheye (fishEyeValue);
+			camera.ChangeCameraEffect (effect, value);
 			Destroy (gameObject);
 		}
 

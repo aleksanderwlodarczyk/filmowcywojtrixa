@@ -20,7 +20,25 @@ public class EffectsControlling : MonoBehaviour {
 	}
 	
 
-	public void ChangeFisheye(float value){
-		fisheye.strengthX = value;
+	public void ChangeCameraEffect(int effect, float value){
+		switch (effect) {
+		case 1:
+			vignette.intensity = value;
+			break;
+		case 2:
+			noise.generalIntensity = value;
+			break;
+		case 3:
+			fisheye.strengthX = value;
+			break;
+		case 4:
+			tonemapping.middleGrey = value;
+			break;
+		case 5:
+			motionBlur.blurAmount = value;
+			break;
+		}
 	}
+
+
 }
