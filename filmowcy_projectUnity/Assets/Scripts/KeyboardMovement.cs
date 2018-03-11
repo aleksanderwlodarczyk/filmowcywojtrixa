@@ -57,7 +57,7 @@ public class KeyboardMovement : MonoBehaviour {
 
 			canJump = false;
 		}
-
+	
 		if (Mathf.Abs(rb2d.velocity.y) > 0.1f && rb2d.gravityScale <= 3f) {
 			
 			rb2d.gravityScale += 0.07f;
@@ -68,8 +68,15 @@ public class KeyboardMovement : MonoBehaviour {
 			Break ();
 		}
 
-		if(canSpeedUp)
-			rb2d.AddForce (Vector2.right * horizontal * realSpeed);
+
+	}
+
+	void FixedUpdate(){
+		if (canSpeedUp) {
+			Vector2 oldVelocity = rb2d.velocity;
+			rb2d.velocity = new Vector2 ((horizontal * realSpeed * Time.fixedDeltaTime), oldVelocity.y);
+		}
+
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
