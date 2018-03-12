@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -771,13 +772,13 @@ CompositeCollider2D:
         Y: -19967998
       - X: 219647984
         Y: -19967998
-    - - X: 269567968
+    - - X: 239615968
         Y: -9983999
-      - X: 249599984
+      - X: 219648000
         Y: -9983999
-      - X: 249599984
+      - X: 219648000
         Y: -19967998
-      - X: 269567968
+      - X: 239615968
         Y: -19967998
     - - X: 249599968
         Y: -9983999
@@ -787,13 +788,13 @@ CompositeCollider2D:
         Y: -19967998
       - X: 249599968
         Y: -19967998
-    - - X: 239615968
+    - - X: 269567968
         Y: -9983999
-      - X: 219648000
+      - X: 249599984
         Y: -9983999
-      - X: 219648000
+      - X: 249599984
         Y: -19967998
-      - X: 239615968
+      - X: 269567968
         Y: -19967998
     - - X: 59903992
         Y: -29952000
@@ -845,18 +846,18 @@ CompositeCollider2D:
       - {x: 20.966398, y: -0.9983999}
       - {x: 20.966398, y: -1.9967998}
       - {x: 21.964798, y: -1.9967998}
-    - - {x: 26.956797, y: -0.9983999}
-      - {x: 24.96, y: -0.9983999}
-      - {x: 24.96, y: -1.9967998}
-      - {x: 26.956797, y: -1.9967998}
-    - - {x: 24.959997, y: -0.9983999}
-      - {x: 23.9616, y: -0.9983999}
-      - {x: 23.9616, y: -1.9967998}
-      - {x: 24.959997, y: -1.9967998}
     - - {x: 23.961597, y: -0.9983999}
       - {x: 21.9648, y: -0.9983999}
       - {x: 21.9648, y: -1.9967998}
       - {x: 23.961597, y: -1.9967998}
+    - - {x: 24.959997, y: -0.9983999}
+      - {x: 23.9616, y: -0.9983999}
+      - {x: 23.9616, y: -1.9967998}
+      - {x: 24.959997, y: -1.9967998}
+    - - {x: 26.956797, y: -0.9983999}
+      - {x: 24.96, y: -0.9983999}
+      - {x: 24.96, y: -1.9967998}
+      - {x: 26.956797, y: -1.9967998}
     - - {x: 5.9903994, y: -2.9952}
       - {x: 0, y: -2.9952}
       - {x: 0, y: -3.9935997}
@@ -1071,6 +1072,7 @@ GameObject:
   - component: {fileID: 868009134}
   - component: {fileID: 868009137}
   - component: {fileID: 868009135}
+  - component: {fileID: 868009138}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -1138,9 +1140,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b31733c55c9174693c712c19e17567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 420
-  jumpForce: 90
+  speed: 600
+  jumpForce: 115
   maxSpeed: 4200
+--- !u!114 &868009138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868009133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf4567bfa583eb4ea4b61f93ea19cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallMultiplier: 5
+  lowJumpMultiplier: 4
 --- !u!1 &876102044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,6 +1226,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10

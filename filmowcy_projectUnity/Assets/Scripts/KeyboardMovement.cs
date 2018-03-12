@@ -82,17 +82,13 @@ public class KeyboardMovement : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.gameObject.tag == "ground") {
 			canJump = true;
-			rb2d.gravityScale = 1;
 		}
 
 	}
 
 	void Break(){
-		
-		if (rb2d.velocity.x > 0f)
-			horizontal = -0.5f;
-		else if (rb2d.velocity.x < 0f)
-			horizontal = 0.5f;
+		Vector2 oldvelocity = rb2d.velocity;
+		rb2d.velocity = new Vector2 (0f, oldvelocity.y);
 	
 	}
 }
