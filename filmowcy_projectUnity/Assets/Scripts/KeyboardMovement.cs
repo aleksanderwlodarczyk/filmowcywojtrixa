@@ -13,6 +13,9 @@ public class KeyboardMovement : MonoBehaviour {
 	[Header("Maksymalna prędkość")]
 	public float maxSpeed = 7f;
 
+
+	public bool jumping;
+
 	private bool canJump;
 	private bool canSpeedUp;
 	private Rigidbody2D rb2d;
@@ -32,13 +35,14 @@ public class KeyboardMovement : MonoBehaviour {
 		realSpeed = speed;
 		canJump = true;
 		canSpeedUp = true;
+		jumping = false;
 
 	}
 
 
 	void Update () {
 
-		horizontal = Input.GetAxis ("Horizontal");
+		//horizontal = Input.GetAxis ("Horizontal");
 
 
 		if (Mathf.Abs (rb2d.velocity.x) > maxSpeed) {
@@ -52,10 +56,8 @@ public class KeyboardMovement : MonoBehaviour {
 		} else
 			realSpeed = speed;
 
-		if ((Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow)) && canJump) {
-			rb2d.AddForce (Vector2.up * jumpForce * 3);
-
-			canJump = false;
+		if ((Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow))) {
+			StartJump ();
 		}
 	
 		if (Mathf.Abs(rb2d.velocity.y) > 0.1f && rb2d.gravityScale <= 3f) {
@@ -64,11 +66,35 @@ public class KeyboardMovement : MonoBehaviour {
 		}
 
 
-		if (Input.GetAxis ("Horizontal") == 0f) {
+		if (horizontal == 0f) {
 			Break ();
 		}
 
 
+	}
+
+	public void WalkLeft(){
+		horizontal = -1f;
+	}
+
+	public void WalkRight(){
+		horizontal = 1f;
+	}
+
+	public void ReleaseArrow(){
+		horizontal = 0f;
+	}
+
+	public void StartJump(){
+		if (canJump) {
+			rb2d.AddForce (Vector2.up * jumpForce * 3);
+			jumping = true;
+			canJump = false;
+		}
+	}
+
+	public void EndJump(){
+		jumping = false;
 	}
 
 	void FixedUpdate(){
