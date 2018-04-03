@@ -232,6 +232,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Battery.cs" />
     <Compile Include="Assets\Scripts\BetterJump.cs" />
     <Compile Include="Assets\Scripts\CamEffect.cs" />
     <Compile Include="Assets\Scripts\CameraFollowing.cs" />
