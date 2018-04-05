@@ -24,7 +24,7 @@ public class Battery : MonoBehaviour {
 	
 	void Update () {
         power -= Time.deltaTime * 11;
-        Debug.Log(power);
+        
         percentage = Mathf.RoundToInt((power / powerMax) * 100);
         percentageText.text = percentage.ToString() + "%";
 
