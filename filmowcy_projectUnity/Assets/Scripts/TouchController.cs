@@ -29,7 +29,7 @@ public class TouchController : MonoBehaviour {
 
         Touch touch = Input.GetTouch(finger);
 
-        debugText.text = touch.position.ToString() + " " + direction;
+        //debugText.text = touch.position.ToString() + " " + direction;
 
         if (touch.phase == TouchPhase.Moved)
         { // swiping (?)

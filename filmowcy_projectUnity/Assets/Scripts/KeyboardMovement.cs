@@ -42,7 +42,7 @@ public class KeyboardMovement : MonoBehaviour {
 
 	void Update () {
 
-		horizontal = Input.GetAxis ("Horizontal");
+		//horizontal = Input.GetAxis ("Horizontal");
 
 
 		if (Mathf.Abs (rb2d.velocity.x) > maxSpeed) {

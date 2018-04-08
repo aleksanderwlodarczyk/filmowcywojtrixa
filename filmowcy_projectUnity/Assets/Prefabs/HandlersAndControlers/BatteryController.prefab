@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1344263149499962}
+  m_IsPrefabParent: 1
+--- !u!1 &1344263149499962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4017344081476264}
+  - component: {fileID: 114223614651892476}
+  m_Layer: 0
+  m_Name: BatteryController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4017344081476264
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344263149499962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.057415, y: 2.347735, z: -0.00390625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114223614651892476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344263149499962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c2ca872a1bd7349a10f526b33368be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
+  batteryExhausted: {fileID: 0}
+  batteryStates:
+  - {fileID: 21300000, guid: 955006926c9dacf4fabb40ce0ac91797, type: 3}
+  - {fileID: 21300000, guid: 07b1a0667b8ce6546916a9b5306d7945, type: 3}
+  - {fileID: 21300000, guid: cefe630857dbeb5438e47745ea38c53e, type: 3}
+  - {fileID: 21300000, guid: d7f2eb1ee9bf8d24ea1882b86f041b85, type: 3}
+  - {fileID: 21300000, guid: 9c7dbd9099381b640877c13354aae774, type: 3}
