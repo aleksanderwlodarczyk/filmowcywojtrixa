@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
 	
     public void Respawn()
     {
+		gameObject.GetComponent<KeyboardMovement> ().ResetVerticalVelocity ();
         myTransform.position = checkpointPos;
         camTransform.position = camCheckpointPos;
     }

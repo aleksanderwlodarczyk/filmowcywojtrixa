@@ -15,7 +15,7 @@ public class Battery : MonoBehaviour {
     public GameObject batteryExhausted;
     public List<Sprite> batteryStates;
 	void Start () {
-        powerMax = 5000;
+        powerMax = 300;
         power = powerMax;
         percentage = Mathf.RoundToInt((power / powerMax) * 100);
         percentageText = GameObject.Find("batteryText").GetComponent<Text>();

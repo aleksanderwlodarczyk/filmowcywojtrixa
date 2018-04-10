@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AIAutoMove.cs" />
      <Compile Include="Assets\Scripts\Battery.cs" />
      <Compile Include="Assets\Scripts\BatteryCharge.cs" />
      <Compile Include="Assets\Scripts\BetterJump.cs" />
@@ -59,10 +60,13 @@
      <Compile Include="Assets\Scripts\Checkpoint.cs" />
      <Compile Include="Assets\Scripts\Collectable.cs" />
      <Compile Include="Assets\Scripts\EffectsControlling.cs" />
+     <Compile Include="Assets\Scripts\Finish.cs" />
      <Compile Include="Assets\Scripts\Floating.cs" />
+     <Compile Include="Assets\Scripts\GroundCheck.cs" />
      <Compile Include="Assets\Scripts\KeyboardMovement.cs" />
      <Compile Include="Assets\Scripts\KillPlayer.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\SceneManaging.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\TouchController.cs" />
  <Reference Include="UnityEngine.UI">

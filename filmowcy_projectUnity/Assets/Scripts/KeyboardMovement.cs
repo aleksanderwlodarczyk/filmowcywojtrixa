@@ -42,7 +42,7 @@ public class KeyboardMovement : MonoBehaviour {
 
 	void Update () {
 
-		//horizontal = Input.GetAxis ("Horizontal");
+		horizontal = Input.GetAxis ("Horizontal");
 
 
 		if (Mathf.Abs (rb2d.velocity.x) > maxSpeed) {
@@ -116,5 +116,10 @@ public class KeyboardMovement : MonoBehaviour {
 		Vector2 oldvelocity = rb2d.velocity;
 		rb2d.velocity = new Vector2 (0f, oldvelocity.y);
 	
+	}
+
+	public void ResetVerticalVelocity(){
+		Vector2 oldVelocity = rb2d.velocity;
+		rb2d.velocity = new Vector2 (oldVelocity.x, 0);
 	}
 }
