@@ -5,28 +5,54 @@ using System.Collections.Generic;
 public class AIAutoMove : MonoBehaviour{
 
 	public int speed;
-	public bool CanGoRight;
-	public bool CanGoLeft;
+	public bool canGoRight;
+	public bool canGoLeft;
 
-	char RandomDirection(){
+	private int dir;
+	private Rigidbody2D rb2d;
+
+	public int minTime;
+	public int maxTime;
+
+	int RandomDirection(){
 		int random = Random.Range (0, 100);
 		if (random >= 50)
-			return 'r';
+			return 1;
 		else
-			return 'l';
+			return -1;
 	}
 
 	int RandomTime(){
-		return Random.Range (1, 4);
+		return Random.Range (minTime, maxTime);
+	}
+
+	void Awake(){
+		canGoLeft = true;
+		canGoRight = true;
 	}
 
 	void Start(){
-		
+
+		rb2d = gameObject.GetComponent<Rigidbody2D> ();
+		StartCoroutine (Randomizing ());
 	}
 
 
 	void FixedUpdate(){
+		if ((dir == 1 && canGoRight) || (dir == -1 && canGoLeft))
+			rb2d.velocity = Vector3.right * speed * dir;
+		else {
+			rb2d.velocity = Vector3.zero;
+		}
 
+	}
+
+	IEnumerator Randomizing(){
+		while (true) {
+			dir = RandomDirection ();
+
+			yield return new WaitForSeconds (RandomTime());
+		}
 	}
 }
 

@@ -35,7 +35,7 @@ public class TouchController : MonoBehaviour {
         { // swiping (?)
             if (InMovingSpace(touch.position))
             {
-                if (Mathf.Abs(touch.deltaPosition.x) > 35f) {
+                if (Mathf.Abs(touch.deltaPosition.x) > 25f) {
                     if (touch.deltaPosition.x > 0f)
                     {
                         playerMovement.WalkRight();

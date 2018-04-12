@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour {
 
+	public bool onTrigger;
+	public bool onCollision;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+		if(collision.gameObject.tag == "Player" && onTrigger)
         {
             collision.gameObject.GetComponent<Player>().Respawn();
         }
@@ -14,7 +17,7 @@ public class KillPlayer : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+		if (collision.gameObject.tag == "Player" && onCollision)
         {
             collision.gameObject.GetComponent<Player>().Respawn();
         }
