@@ -20,7 +20,7 @@ public class TouchController : MonoBehaviour {
     }
 
     bool InMovingSpace(Vector2 touchPos) {
-        if (touchPos.x >= 0f && touchPos.x <= 900f) return true;
+        if (touchPos.x >= 0f && touchPos.x <= 1200f) return true;
         else return false;
     }
     void Update() {
@@ -35,7 +35,7 @@ public class TouchController : MonoBehaviour {
         { // swiping (?)
             if (InMovingSpace(touch.position))
             {
-                if (Mathf.Abs(touch.deltaPosition.x) > 25f) {
+                if (Mathf.Abs(touch.deltaPosition.x) > 15f) {
                     if (touch.deltaPosition.x > 0f)
                     {
                         playerMovement.WalkRight();

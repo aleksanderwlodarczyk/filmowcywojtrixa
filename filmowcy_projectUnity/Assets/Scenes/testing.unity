@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -501,42 +500,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 4208196718320256, guid: 22e0bdd09f12876488f99591d50f1269, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4240040093827938, guid: 22e0bdd09f12876488f99591d50f1269, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 4654725278971916, guid: 22e0bdd09f12876488f99591d50f1269, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 61091255257091666, guid: 22e0bdd09f12876488f99591d50f1269,
+    - target: {fileID: 114965037101872908, guid: 22e0bdd09f12876488f99591d50f1269,
         type: 2}
-      propertyPath: m_Size.x
-      value: 0.6
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 50077979688525116, guid: 22e0bdd09f12876488f99591d50f1269,
+    - target: {fileID: 114965037101872908, guid: 22e0bdd09f12876488f99591d50f1269,
         type: 2}
-      propertyPath: m_GravityScale
-      value: 1
+      propertyPath: minTime
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 61091255257091666, guid: 22e0bdd09f12876488f99591d50f1269,
+    - target: {fileID: 114965037101872908, guid: 22e0bdd09f12876488f99591d50f1269,
         type: 2}
-      propertyPath: m_Offset.y
-      value: 1.2725302
-      objectReference: {fileID: 0}
-    - target: {fileID: 61091255257091666, guid: 22e0bdd09f12876488f99591d50f1269,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.15164447
-      objectReference: {fileID: 0}
-    - target: {fileID: 114289756704730460, guid: 22e0bdd09f12876488f99591d50f1269,
-        type: 2}
-      propertyPath: onCollision
-      value: 1
+      propertyPath: maxTime
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22e0bdd09f12876488f99591d50f1269, type: 2}

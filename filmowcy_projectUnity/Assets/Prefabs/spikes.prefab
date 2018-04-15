@@ -78,6 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3417b03937f00449ab9df5d5c3eb010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onTrigger: 0
+  onCollision: 1
 --- !u!212 &212817361275452486
 SpriteRenderer:
   m_ObjectHideFlags: 1
