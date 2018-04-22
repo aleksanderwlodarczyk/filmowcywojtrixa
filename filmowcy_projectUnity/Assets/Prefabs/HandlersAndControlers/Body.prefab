@@ -9,30 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1344263149499962}
+  m_RootGameObject: {fileID: 1141364114624538}
   m_IsPrefabParent: 1
---- !u!1 &1344263149499962
+--- !u!1 &1141364114624538
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4017344081476264}
-  - component: {fileID: 114223614651892476}
+  - component: {fileID: 4485850416449334}
+  - component: {fileID: 114668817489713532}
+  - component: {fileID: 114463020280937272}
   m_Layer: 0
-  m_Name: BatteryController
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4017344081476264
+--- !u!4 &4485850416449334
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1344263149499962}
+  m_GameObject: {fileID: 1141364114624538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.057415, y: 2.347735, z: -0.00390625}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,18 +41,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114223614651892476
+--- !u!114 &114463020280937272
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1344263149499962}
+  m_GameObject: {fileID: 1141364114624538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d8a81d13b0bfc34e92e223f838a421c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIText: {fileID: 0}
+  debugConsole: {fileID: 0}
+  multiplier: 0
+  overheated: 0
+--- !u!114 &114668817489713532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1141364114624538}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69c2ca872a1bd7349a10f526b33368be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0
+  powerMax: 300
   batteryExhausted: {fileID: 0}
   batteryStates:
   - {fileID: 21300000, guid: 955006926c9dacf4fabb40ce0ac91797, type: 3}

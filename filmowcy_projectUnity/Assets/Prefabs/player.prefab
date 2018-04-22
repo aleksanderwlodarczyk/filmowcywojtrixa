@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1850817028351528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.762, y: 3.305, z: 0}
+  m_LocalPosition: {x: -11.35, y: 13.26, z: 0}
   m_LocalScale: {x: 0.4054143, y: 0.4054143, z: 0.4054143}
   m_Children:
   - {fileID: 4722814664096996}
@@ -123,7 +123,9 @@ MonoBehaviour:
   speed: 600
   jumpForce: 120
   maxSpeed: 4200
+  maxVerticalSpeed: 40
   jumping: 0
+  debugConsole: {fileID: 0}
 --- !u!114 &114761384232400272
 MonoBehaviour:
   m_ObjectHideFlags: 1

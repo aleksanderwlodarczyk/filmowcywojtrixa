@@ -12,16 +12,19 @@ public class KeyboardMovement : MonoBehaviour {
 	public float jumpForce = 50f;
 	[Header("Maksymalna prędkość")]
 	public float maxSpeed = 7f;
+    [Header("Maksymalna prędkość wertykalna")]
+    public float maxVerticalSpeed;
 
 
-	public bool jumping;
+    //public bool playing;
+    public bool jumping;
+    public GameObject debugConsole;
 
 	private bool canJump;
 	private bool canSpeedUp;
 	private Rigidbody2D rb2d;
 	private float horizontal;
 	private float realSpeed;
-
 
 
 	public float Horizontal { 
@@ -36,13 +39,13 @@ public class KeyboardMovement : MonoBehaviour {
 		canJump = true;
 		canSpeedUp = true;
 		jumping = false;
-
+        //playing = true;
 	}
 
 
 	void Update () {
 
-		//horizontal = Input.GetAxis ("Horizontal");
+		horizontal = Input.GetAxis ("Horizontal");
 
 
 		if (Mathf.Abs (rb2d.velocity.x) > maxSpeed) {
@@ -70,8 +73,7 @@ public class KeyboardMovement : MonoBehaviour {
 			Break ();
 		}
 
-
-	}
+    }
 
 	public void WalkLeft(){
 		horizontal = -1f;
@@ -102,10 +104,18 @@ public class KeyboardMovement : MonoBehaviour {
 			Vector2 oldVelocity = rb2d.velocity;
 			rb2d.velocity = new Vector2 ((horizontal * realSpeed * Time.fixedDeltaTime), oldVelocity.y);
 		}
+        
 
+        if(Mathf.Abs(rb2d.velocity.y) >= maxVerticalSpeed)
+        {
+            Vector2 oldVelocity = rb2d.velocity;
+
+            if(rb2d.velocity.y < 0f) rb2d.velocity = new Vector2(oldVelocity.x, -(maxVerticalSpeed-0.5f));
+            else rb2d.velocity = new Vector2(oldVelocity.x, (maxVerticalSpeed - 0.5f));
+        }
 	}
 
-	void OnCollisionEnter2D(Collision2D coll){
+	void OnCollisionStay2D(Collision2D coll){
 		if (coll.gameObject.tag == "ground") {
 			canJump = true;
 		}
