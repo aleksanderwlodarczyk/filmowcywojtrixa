@@ -9,6 +9,7 @@ public class Heat : MonoBehaviour {
     public Text debugConsole;
     public float multiplier;
     public bool overheated;
+    public GameObject overheatMessage;
 
     private float maxTemperature;
     private float startingTemperature;
@@ -29,18 +30,21 @@ public class Heat : MonoBehaviour {
         else
         {
             temperature -= 0.09f * multiplier;
-            debugConsole.color = Color.red;
+            UIText.color = Color.red;
+            overheatMessage.SetActive(true);
             Time.timeScale = 0;
 
             if (temperature <= 38f)
             {
                 Time.timeScale = 1;
                 overheated = false;
-                debugConsole.color = Color.white;
+                UIText.color = Color.white;
                 // show message "overheat"
+                overheatMessage.SetActive(false);
             }
         }
 
-        debugConsole.text = Mathf.Round(temperature).ToString() + " C"; // print it to ui no debug
-	}
+        UIText.text = Mathf.Round(temperature).ToString() + "°C"; // print it to ui no debug
+
+    }
 }
