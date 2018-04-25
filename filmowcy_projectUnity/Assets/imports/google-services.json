@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1019685961402",
+    "firebase_url": "https://filmowcy-wojtrixa.firebaseio.com",
+    "project_id": "filmowcy-wojtrixa",
+    "storage_bucket": "filmowcy-wojtrixa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019685961402:android:8cbcb21f02a3dcd6",
+        "android_client_info": {
+          "package_name": "com.Allof.filmowcy_projectUnity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019685961402-cnpjlcq1bkn1cbjbi8ij02jh069ugc2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADWKkcSDm8tnnJ1d_OelFYC7ikDhldgUk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

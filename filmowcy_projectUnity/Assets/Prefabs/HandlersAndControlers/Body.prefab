@@ -54,8 +54,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIText: {fileID: 0}
   debugConsole: {fileID: 0}
-  multiplier: 0
+  heatingMultiplier: 5
+  coolingMultiplier: 2
   overheated: 0
+  overheatMessage: {fileID: 0}
+  maxTemperature: 65
+  startingTemperature: 23
 --- !u!114 &114668817489713532
 MonoBehaviour:
   m_ObjectHideFlags: 1

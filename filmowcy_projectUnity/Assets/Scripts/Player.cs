@@ -17,9 +17,11 @@ public class Player : MonoBehaviour {
 	
     public void Respawn()
     {
-		gameObject.GetComponent<KeyboardMovement> ().ResetVerticalVelocity ();
-        myTransform.position = checkpointPos;
-        camTransform.position = camCheckpointPos;
+        int score = GameObject.Find("scoreHandler").GetComponent<Score>().ScoreAmount;
+        GameObject.Find("GameStateHandler").GetComponent<GameOver>().Die(score);
+		// gameObject.GetComponent<KeyboardMovement> ().ResetVerticalVelocity ();
+        // myTransform.position = checkpointPos;
+        // camTransform.position = camCheckpointPos;
     }
 
     public void SetCheckpoint()
