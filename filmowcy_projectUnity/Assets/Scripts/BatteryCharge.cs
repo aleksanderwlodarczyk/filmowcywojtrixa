@@ -8,7 +8,7 @@ public class BatteryCharge : MonoBehaviour {
 
     private Battery batteryHandler;
 	void Start () {
-        batteryHandler = GameObject.Find("BatteryController").GetComponent<Battery>();
+        batteryHandler = GameObject.Find("Body").GetComponent<Battery>();
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

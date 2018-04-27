@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class Battery : MonoBehaviour {
 
-    private float power;
+    
     public float powerMax;
     private int percentage;
     private Text percentageText;
     private Image batterySprite;
     private SceneManaging sceneManage;
 
+    public float power;
     public GameObject batteryExhausted;
     public List<Sprite> batteryStates;
 	void Start () {

@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerMax: 300
+  power: 0
   batteryExhausted: {fileID: 0}
   batteryStates:
   - {fileID: 21300000, guid: 955006926c9dacf4fabb40ce0ac91797, type: 3}

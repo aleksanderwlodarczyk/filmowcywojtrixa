@@ -9,11 +9,19 @@ public class SceneManaging : MonoBehaviour {
 
     public void LoadLevel(int index)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(index);
     }
 
     public void LoadLevel(string name)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(name);
+    }
+
+    public void Restart()
+    {
+        
+        LoadLevel(CurrentLevel);
     }
 }
