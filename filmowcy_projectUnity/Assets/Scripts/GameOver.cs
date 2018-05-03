@@ -20,9 +20,13 @@ public class GameOver : MonoBehaviour {
     private string[] names = new string[3];
     private FirebaseFlow firebase;
     private Text endScoreText;
+    private Text endCashText;
+    private Text endBatteryText;
+    private Text endScreenTitle;
     private SceneManaging sManager;
     private bool leadersDownloaded;
-    
+    private bool nextLevel;
+
     void Start () {
         leadersDownloaded = false;
 		firebase = GameObject.Find("Firebase").GetComponent<FirebaseFlow>();
@@ -34,21 +38,34 @@ public class GameOver : MonoBehaviour {
 
         battery = GameObject.Find("Body").GetComponent<Battery>();
         endScoreText = loseScreen.transform.GetChild(1).gameObject.GetComponent<Text>();
+        endCashText = loseScreen.transform.GetChild(3).gameObject.GetComponent<Text>();
+        endBatteryText = loseScreen.transform.GetChild(5).gameObject.GetComponent<Text>();
+        endScreenTitle = loseScreen.transform.GetChild(6).gameObject.GetComponent<Text>();
         sManager = GameObject.Find("sceneHandler").GetComponent<SceneManaging>();
     }
 
-	public void Die(int points){
-        
+	public void EndGame(int points, bool died){
+        if (died)
+        {
+            endScreenTitle.text = "You Died";
+            nextLevel = false;
+        }
+        else
+        {
+            endScreenTitle.text = "Level Completed";
+            nextLevel = true;
+        }
+
         GetRecords();
         score = points * (int)battery.power;
-        endScoreText.text = score.ToString();
+        endScoreText.text = "score: " + score.ToString();
+        endCashText.text = points.ToString();
+        endBatteryText.text = ((int)battery.power).ToString();
 		Time.timeScale = 0;
         loseScreen.SetActive(true);
 
         Debug.Log("r Count: " + firebase.records);
         //leaderboard.transform.GetChild(i).gameObject.GetComponent<Text>().text = firebase.RecordName(i+1) + "\t" + firebase.RecordScore(i+1).ToString();
-     
-
     }
 
     void GetRecords()
@@ -127,9 +144,10 @@ public class GameOver : MonoBehaviour {
     }
 
 	public void SaveScore(){
-        string nick = GameObject.Find("nameInput").transform.GetChild(1).gameObject.GetComponent<Text>().text;
+        string nick = GameObject.Find("nameInput").transform.GetChild(1).gameObject.GetComponent<Text>().text; // change to 1 when building on andro
         //string nick = "phone1debug";
 		firebase.SendRecord(nick, score);
-        sManager.LoadLevel(sManager.CurrentLevel);
-	}
+        if (nextLevel) sManager.LoadLevel(sManager.CurrentLevel + 1);
+        else sManager.LoadLevel(sManager.CurrentLevel);
+    }
 }

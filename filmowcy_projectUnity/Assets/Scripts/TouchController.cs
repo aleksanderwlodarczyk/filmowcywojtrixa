@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TouchController : MonoBehaviour {
 
-    public Text debugText;
+    //public Text debugText;
 
     private string direction;
     private KeyboardMovement playerMovement;
