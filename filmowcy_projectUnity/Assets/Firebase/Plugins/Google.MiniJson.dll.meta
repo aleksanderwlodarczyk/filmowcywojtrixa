@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: 10ef848964ba4c87ac2f9b2b0700b39f
 labels:
 - gvh
-- gvh_version-4.5.1
+- gvh_version-4.5.0
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -11,18 +11,6 @@ PluginImporter:
   isPreloaded: 0
   isOverridable: 0
   platformData:
-  - first:
-      '': OSXIntel
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-  - first:
-      '': OSXIntel64
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
   - first:
       '': Web
     second:
@@ -78,6 +66,18 @@ PluginImporter:
         CPU: x86_64
   - first:
       Standalone: LinuxUniversal
+    second:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+  - first:
+      Standalone: OSXIntel
+    second:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+  - first:
+      Standalone: OSXIntel64
     second:
       enabled: 1
       settings:

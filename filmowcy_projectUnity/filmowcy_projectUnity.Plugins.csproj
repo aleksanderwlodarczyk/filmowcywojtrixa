@@ -230,6 +230,12 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook.Unity">
+      <HintPath>Assets/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>Assets/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll</HintPath>
+    </Reference>
     <Reference Include="Firebase.App">
       <HintPath>Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
     </Reference>
@@ -249,10 +255,10 @@
       <HintPath>Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Compat">
-      <HintPath>Assets/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
+      <HintPath>Assets/Parse/Plugins/Unity.Compat.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Tasks">
-      <HintPath>Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+      <HintPath>Assets/Parse/Plugins/Unity.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Aleksander/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
@@ -308,27 +314,45 @@
     <Compile Include="Assets\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\FacebookSDK\link.xml" />
     <None Include="Assets\Firebase\Editor\AppDependencies.xml" />
     <None Include="Assets\Firebase\Editor\AuthDependencies.xml" />
-    <None Include="Assets\Firebase\Editor\FirebaseAuth_v4.5.1_manifest.txt" />
-    <None Include="Assets\Firebase\Editor\FirebaseDatabase_v4.5.1_manifest.txt" />
+    <None Include="Assets\Firebase\Editor\FirebaseAuth_v4.5.0_manifest.txt" />
+    <None Include="Assets\Firebase\Editor\FirebaseDatabase_v4.5.0_manifest.txt" />
     <None Include="Assets\Firebase\Plugins\Http\link.xml" />
     <None Include="Assets\Firebase\Plugins\link.xml" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
     <None Include="Assets\PlayServicesResolver\Editor\play-services-resolver_v1.2.64.0.txt" />
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Android\Firebase\AndroidManifest.xml" />
     <None Include="Assets\Plugins\Android\Firebase\res\values\google-services.xml" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-app-unity-4.5.1\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-app-unity-4.5.1\R.txt" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-app-unity-4.5.1\proguard.txt" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-auth-unity-4.5.1\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-auth-unity-4.5.1\R.txt" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-auth-unity-4.5.1\proguard.txt" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-common-12.0.1\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-core-12.0.1\AndroidManifest.xml" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-core-12.0.1\R.txt" />
-    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-iid-12.0.1\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.android.gms.play-services-base-license-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.android.gms.play-services-base-license-11.8.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\com.google.android.gms.play-services-basement-license-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.android.gms.play-services-basement-license-11.8.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\com.google.android.gms.play-services-tasks-license-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.android.gms.play-services-tasks-license-11.8.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-analytics-impl-license-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-analytics-impl-license-11.8.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-analytics-license-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-analytics-license-11.8.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-app-unity-4.5.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-app-unity-4.5.0\R.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-app-unity-4.5.0\proguard.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-auth-license-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-auth-license-11.8.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-auth-unity-4.5.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-auth-unity-4.5.0\R.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-auth-unity-4.5.0\proguard.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-common-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-common-license-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-common-license-11.8.0\third_party_licenses.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-core-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-core-11.8.0\R.txt" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-iid-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-iid-license-11.8.0\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\Android\com.google.firebase.firebase-iid-license-11.8.0\third_party_licenses.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Readme.txt" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />

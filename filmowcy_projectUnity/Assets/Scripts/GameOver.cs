@@ -19,6 +19,7 @@ public class GameOver : MonoBehaviour {
     private string[] scores = new string[3];
     private string[] names = new string[3];
     private FirebaseFlow firebase;
+    private FacebookFlow facebook;
     private Text endScoreText;
     private Text endCashText;
     private Text endBatteryText;
@@ -34,8 +35,8 @@ public class GameOver : MonoBehaviour {
         FirebaseApp.DefaultInstance.SetEditorServiceAccountEmail("filmowcy-wojtrixa@appspot.gserviceaccount.com");
         
         reference = FirebaseDatabase.DefaultInstance.RootReference;
-        
 
+        facebook = GameObject.Find("Facebook").GetComponent<FacebookFlow>();
         battery = GameObject.Find("Body").GetComponent<Battery>();
         endScoreText = loseScreen.transform.GetChild(1).gameObject.GetComponent<Text>();
         endCashText = loseScreen.transform.GetChild(3).gameObject.GetComponent<Text>();
@@ -144,9 +145,16 @@ public class GameOver : MonoBehaviour {
     }
 
 	public void SaveScore(){
-        string nick = GameObject.Find("nameInput").transform.GetChild(1).gameObject.GetComponent<Text>().text; // change to 1 when building on andro
+        //string nick = GameObject.Find("nameInput").transform.GetChild(1).gameObject.GetComponent<Text>().text; // change to 1 when building on andro
         //string nick = "phone1debug";
+        string nick = facebook.fbName;
 		firebase.SendRecord(nick, score);
+        if (nextLevel) sManager.LoadLevel(sManager.CurrentLevel + 1);
+        else sManager.LoadLevel(sManager.CurrentLevel);
+    }
+
+    public void NoSaveScore()
+    {
         if (nextLevel) sManager.LoadLevel(sManager.CurrentLevel + 1);
         else sManager.LoadLevel(sManager.CurrentLevel);
     }

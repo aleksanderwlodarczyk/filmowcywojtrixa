@@ -3,8 +3,8 @@ guid: 93324a471a6d44bb8297d17d8b191e52
 labels:
 - gvh
 - gvh_dotnet-3.5
-timeCreated: 1524746750
-licenseType: Free
+timeCreated: 1500423342
+licenseType: Pro
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -16,12 +16,12 @@ PluginImporter:
   - first:
       Any: 
     second:
-      enabled: 0
+      enabled: 1
       settings: {}
   - first:
       Editor: Editor
     second:
-      enabled: 0
+      enabled: 1
       settings:
         DefaultValueInitialized: true
   - first:

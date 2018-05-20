@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b4fce050677584c9eb9b1c22bc1adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loseScreen: {fileID: 1584514978117928, guid: c19f3993fc0903f44a8b0d347d80e37e, type: 2}
+  loseScreen: {fileID: 0}
   leaderboard:
   - {fileID: 0}
   - {fileID: 0}
