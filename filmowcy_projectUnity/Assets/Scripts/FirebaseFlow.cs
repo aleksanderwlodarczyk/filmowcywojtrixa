@@ -97,13 +97,16 @@ public class FirebaseFlow : MonoBehaviour {
         FirebaseDatabase.DefaultInstance.GetReference("/users_money/" + facebookID).SetValueAsync(cash);
     }
 
-    public void SetUserItems(string facebookID, bool dblJump, bool extBat)
+    public void SetUserItems(string facebookID, bool dblJump, bool extBat, bool shield)
     {
         if(dblJump) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/doubleJump").SetValueAsync(1);
         else FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/doubleJump").SetValueAsync(0);
 
         if (extBat) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/extendedBattery").SetValueAsync(1);
         else FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/extendedBattery").SetValueAsync(0);
+
+        if (shield) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/oneHitShield").SetValueAsync(1);
+        else FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/oneHitShield").SetValueAsync(0);
 
     }
 

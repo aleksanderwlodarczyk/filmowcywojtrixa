@@ -13,14 +13,17 @@ public class UserFlow : MonoBehaviour {
 
     public bool doubleJump;
     public bool extendedBat;
+    public bool oneHitShield;
 
     private KeyboardMovement playerMovement;
+    private Player player;
     private Battery playerBattery;
     private FirebaseFlow firebase;
 
 	void Awake () {
         if (playingScene)
         {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<KeyboardMovement>();
             playerBattery = GameObject.FindGameObjectWithTag("Body").GetComponent<Battery>();
         }
@@ -127,13 +130,25 @@ public class UserFlow : MonoBehaviour {
                         userExist = true;
                     }
 
+                    if (p.Key == "oneHitShield")
+                    {
+                        // will be saving these vals in player prefs in the future
+                        oneHitShield = p.Value.ToString() == "1" ? true : false;
+                        if (playingScene)
+                        {
+                            if (oneHitShield) player.GiveShield();
+                        }
+                        userExist = true;
+                    }
+
                     if (p.Key == "extendedBattery")
                     {
                         // will be saving these vals in player prefs in the future
                         extendedBat = p.Value.ToString() == "1" ? true : false;
                         if (playingScene)
                         {
-                            playerBattery.ExtendBattery();
+                            if(extendedBat) playerBattery.ExtendBattery();
+
                         }
                         userExist = true;
                     }
@@ -153,7 +168,7 @@ public class UserFlow : MonoBehaviour {
         //if user does not exist create record with value 0
         Debug.Log("regging user");
         firebase.SetUserMoney(facebookID, 0);
-        firebase.SetUserItems(facebookID, false, false);
+        firebase.SetUserItems(facebookID, false, false, false);
         loggedUser = facebookID;
     }
 
