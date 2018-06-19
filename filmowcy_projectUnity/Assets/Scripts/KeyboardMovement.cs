@@ -16,11 +16,15 @@ public class KeyboardMovement : MonoBehaviour {
     public float maxVerticalSpeed;
 
 
+    public bool doubleJump = false;
+
     //public bool playing;
     public bool jumping;
     public GameObject debugConsole;
 
-	private bool canJump;
+
+    private bool jumpedOnce;
+	public bool canJump;
 	private bool canSpeedUp;
 	private Rigidbody2D rb2d;
 	private float horizontal;
@@ -35,7 +39,8 @@ public class KeyboardMovement : MonoBehaviour {
 
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
-		realSpeed = speed;
+        jumpedOnce = false;
+        realSpeed = speed;
 		canJump = true;
 		canSpeedUp = true;
 		jumping = false;
@@ -89,10 +94,29 @@ public class KeyboardMovement : MonoBehaviour {
 
 	public void StartJump(){
 		if (canJump) {
+            
 			rb2d.AddForce (Vector2.up * jumpForce * 3);
 			jumping = true;
-			canJump = false;
-		}
+
+            if (doubleJump)
+            {
+                if (jumpedOnce)
+                {
+                    canJump = false;
+                }
+                else
+                {
+                    jumpedOnce = true;
+                    canJump = true;
+                }
+            }
+            else
+            {
+                canJump = false;
+            }
+
+            
+        }
 	}
 
 	public void EndJump(){
@@ -115,9 +139,10 @@ public class KeyboardMovement : MonoBehaviour {
         }
 	}
 
-	void OnCollisionStay2D(Collision2D coll){
+	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.gameObject.tag == "ground") {
 			canJump = true;
+            jumpedOnce = false;
 		}
 
 	}

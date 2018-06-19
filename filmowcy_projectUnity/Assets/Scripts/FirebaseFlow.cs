@@ -35,7 +35,8 @@ public class FirebaseFlow : MonoBehaviour {
         
 		FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://filmowcy-wojtrixa.firebaseio.com/");
 		FirebaseApp.DefaultInstance.SetEditorServiceAccountEmail("filmowcy-wojtrixa@appspot.gserviceaccount.com");
-	}
+
+    }
 	
 	//void ShowTestData(){
 
@@ -85,9 +86,25 @@ public class FirebaseFlow : MonoBehaviour {
 		});
 		return score;
 	}
-	public void SendRecord(string name, int score){
-		FirebaseDatabase.DefaultInstance.GetReference("/scoreboard/"+ (records+1).ToString()).Child("name").SetValueAsync(name);
-		FirebaseDatabase.DefaultInstance.GetReference("/scoreboard/"+ (records+1).ToString()).Child("score").SetValueAsync(score);
-	}
+    public void SendRecord(string name, int score)
+    {
+        FirebaseDatabase.DefaultInstance.GetReference("/scoreboard/" + (records + 1).ToString()).Child("name").SetValueAsync(name);
+        FirebaseDatabase.DefaultInstance.GetReference("/scoreboard/" + (records + 1).ToString()).Child("score").SetValueAsync(score);
+    }
+
+    public void SetUserMoney(string facebookID, int cash)
+    {
+        FirebaseDatabase.DefaultInstance.GetReference("/users_money/" + facebookID).SetValueAsync(cash);
+    }
+
+    public void SetUserItems(string facebookID, bool dblJump, bool extBat)
+    {
+        if(dblJump) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/doubleJump").SetValueAsync(1);
+        else FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/doubleJump").SetValueAsync(0);
+
+        if (extBat) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/extendedBattery").SetValueAsync(1);
+        else FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/extendedBattery").SetValueAsync(0);
+
+    }
 
 }

@@ -6,6 +6,8 @@ using Facebook.Unity;
 public class FacebookFlow : MonoBehaviour {
 
     public string fbName;
+    public string fbID;
+    public bool loginAfterGet;
 
     private bool APICalled;
 
@@ -36,8 +38,9 @@ public class FacebookFlow : MonoBehaviour {
         {
             var aToken = AccessToken.CurrentAccessToken;
 
+            FB.API("/me?fields=id", HttpMethod.GET, SaveID);
             FB.API("/me?fields=first_name", HttpMethod.GET, SaveName);
-            FB.API("/me?fields=last_name", HttpMethod.GET, SaveSurname);
+            Invoke("GetSurname", 0.8f);   
         }
         else
         {
@@ -45,10 +48,24 @@ public class FacebookFlow : MonoBehaviour {
         }
     }
 
+    void GetSurname()
+    {
+        FB.API("/me?fields=last_name", HttpMethod.GET, SaveSurname);
+    }
+
     void SaveName(IGraphResult result)
     {
         fbName += result.ResultDictionary["first_name"].ToString();
         fbName += " ";
+    }
+
+    void SaveID(IGraphResult result)
+    {
+        fbID = result.ResultDictionary["id"].ToString();
+        if (loginAfterGet)
+        {
+            GameObject.Find("Users").GetComponent<UserFlow>().LoginUser(fbID);
+        }
     }
 
     void SaveSurname(IGraphResult result)

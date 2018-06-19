@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114463020280937272}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,6 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerMax: 300
   power: 0
+  extended: 0
   batteryExhausted: {fileID: 0}
   batteryStates:
   - {fileID: 21300000, guid: 955006926c9dacf4fabb40ce0ac91797, type: 3}
