@@ -9,6 +9,7 @@ using Firebase.Database;
 
 public class FirebaseFlow : MonoBehaviour {
 
+    private UserFlow user;
 
     public DatabaseReference reference;
     public int records;
@@ -32,7 +33,7 @@ public class FirebaseFlow : MonoBehaviour {
         RecordsCount();
     }
     void Start () {
-        
+        user = GameObject.Find("Users").GetComponent<UserFlow>();
 		FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://filmowcy-wojtrixa.firebaseio.com/");
 		FirebaseApp.DefaultInstance.SetEditorServiceAccountEmail("filmowcy-wojtrixa@appspot.gserviceaccount.com");
 
@@ -92,22 +93,23 @@ public class FirebaseFlow : MonoBehaviour {
         FirebaseDatabase.DefaultInstance.GetReference("/scoreboard/" + (records + 1).ToString()).Child("score").SetValueAsync(score);
     }
 
-    public void SetUserMoney(string facebookID, int cash)
+    public void SetUserMoney(string facebookID, int cash, bool adding)
     {
-        FirebaseDatabase.DefaultInstance.GetReference("/users_money/" + facebookID).SetValueAsync(cash);
+        if (adding)
+        {
+            int toSet = user.cash + cash;
+            FirebaseDatabase.DefaultInstance.GetReference("/users_money/" + facebookID).SetValueAsync(toSet);
+        }
+        else
+        {
+            FirebaseDatabase.DefaultInstance.GetReference("/users_money/" + facebookID).SetValueAsync(cash);
+        }
     }
 
-    public void SetUserItems(string facebookID, bool dblJump, bool extBat, bool shield)
+    public void SetUserItem(string facebookID, string itemName, bool value)
     {
-        if(dblJump) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/doubleJump").SetValueAsync(1);
-        else FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/doubleJump").SetValueAsync(0);
-
-        if (extBat) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/extendedBattery").SetValueAsync(1);
-        else FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/extendedBattery").SetValueAsync(0);
-
-        if (shield) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/oneHitShield").SetValueAsync(1);
-        else FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/oneHitShield").SetValueAsync(0);
-
+        if (value) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/" + itemName).SetValueAsync(1);
+        else FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/" + itemName).SetValueAsync(0);
     }
 
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour {
 
 	private int score;
+    private int currency;
 	private Text scoreText;
 
 
@@ -13,8 +14,14 @@ public class Score : MonoBehaviour {
 		get { return score;}
 	}
 
-	void Start(){
+    public int PremiumCurrencyAmount
+    {
+        get { return currency; }
+    }
+
+    void Start(){
 		score = 0;
+		currency = 0;
 		scoreText = GameObject.Find ("scoreText").GetComponent<Text> ();
 		UpdateScoreText ();
 	}
@@ -23,6 +30,11 @@ public class Score : MonoBehaviour {
 		score += amount;
 		UpdateScoreText ();
 	}
+
+    public void AddPremiumCurrency(int amount)
+    {
+        currency += amount;
+    }
 
 	private void UpdateScoreText(){
 		scoreText.text = score.ToString();

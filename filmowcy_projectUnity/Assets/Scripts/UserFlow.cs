@@ -4,6 +4,7 @@ using UnityEngine;
 using Firebase;
 using Firebase.Unity.Editor;
 using Firebase.Database;
+using System.Threading.Tasks;
 
 public class UserFlow : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class UserFlow : MonoBehaviour {
     public bool doubleJump;
     public bool extendedBat;
     public bool oneHitShield;
+    public Task storeItemsChecking;
 
     private KeyboardMovement playerMovement;
     private Player player;
@@ -37,8 +39,8 @@ public class UserFlow : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
+            firebase.SetUserMoney(loggedUser, 10, true);
             RefreshUsersMoney(loggedUser);
-            firebase.SetUserMoney(loggedUser, cash + 10);
         }
     }
 
@@ -167,8 +169,10 @@ public class UserFlow : MonoBehaviour {
     {
         //if user does not exist create record with value 0
         Debug.Log("regging user");
-        firebase.SetUserMoney(facebookID, 0);
-        firebase.SetUserItems(facebookID, false, false, false);
+        firebase.SetUserMoney(facebookID, 0, false);
+        firebase.SetUserItem(facebookID, "doubleJump", false);
+        firebase.SetUserItem(facebookID, "extendedBattery", false);
+        firebase.SetUserItem(facebookID, "oneHitShield", false);
         loggedUser = facebookID;
     }
 

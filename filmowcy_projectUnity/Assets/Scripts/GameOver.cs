@@ -16,6 +16,7 @@ public class GameOver : MonoBehaviour {
     private DatabaseReference reference;
     private Battery battery;
 	private int score;
+    private int premiumCurrencyGet;
     private string[] scores = new string[3];
     private string[] names = new string[3];
     private FirebaseFlow firebase;
@@ -45,7 +46,7 @@ public class GameOver : MonoBehaviour {
         sManager = GameObject.Find("sceneHandler").GetComponent<SceneManaging>();
     }
 
-	public void EndGame(int points, bool died){
+	public void EndGame(int points, int premiumCurrency, bool died){
         if (died)
         {
             endScreenTitle.text = "You Died";
@@ -58,6 +59,7 @@ public class GameOver : MonoBehaviour {
         }
 
         GetRecords();
+        premiumCurrencyGet = premiumCurrency;
         score = points * (int)battery.power;
         endScoreText.text = "score: " + score.ToString();
         endCashText.text = points.ToString();
@@ -66,6 +68,7 @@ public class GameOver : MonoBehaviour {
         loseScreen.SetActive(true);
 
         Debug.Log("r Count: " + firebase.records);
+        firebase.SetUserMoney(facebook.fbID, premiumCurrency, true);
         //leaderboard.transform.GetChild(i).gameObject.GetComponent<Text>().text = firebase.RecordName(i+1) + "\t" + firebase.RecordScore(i+1).ToString();
     }
 

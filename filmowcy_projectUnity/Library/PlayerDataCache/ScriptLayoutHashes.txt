@@ -14,7 +14,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 af723155c251fcfa0e66530a75f3ea4c UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.GameGroups
-488dd4876bbfdcf393a8bf68f8abb3ef Assembly-CSharp.dll:.Collectable
+dc630769172d5da23b0f4a396ab55249 Assembly-CSharp.dll:.Collectable
 c08b196716247885d3b27f7f282b2568 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ImageEffectBase
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Player
 00f826a462877ed58d4ff3dc51121c4e Assembly-CSharp.dll:.GameOver

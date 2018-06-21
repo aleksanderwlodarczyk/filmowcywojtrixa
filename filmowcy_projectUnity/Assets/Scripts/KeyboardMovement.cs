@@ -51,7 +51,7 @@ public class KeyboardMovement : MonoBehaviour {
 	void Update () {
 
         //comment this line below when building on Android
-		//horizontal = Input.GetAxis ("Horizontal");
+		horizontal = Input.GetAxis ("Horizontal");
 
 
 		if (Mathf.Abs (rb2d.velocity.x) > maxSpeed) {

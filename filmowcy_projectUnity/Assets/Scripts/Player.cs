@@ -8,10 +8,12 @@ public class Player : MonoBehaviour {
     private Vector3 camCheckpointPos;
     private Transform myTransform;
     private Transform camTransform;
+    private Score scoreObject;
 
     private bool oneHitShield = false;
     private GameObject shield;
 	void Start () {
+        scoreObject = GameObject.Find("scoreHandler").GetComponent<Score>();
         camTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
         myTransform = gameObject.GetComponent<Transform>();
         checkpointPos = myTransform.position;
@@ -36,8 +38,9 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            int score = GameObject.Find("scoreHandler").GetComponent<Score>().ScoreAmount;
-            GameObject.Find("GameStateHandler").GetComponent<GameOver>().EndGame(score, true);
+            int score = scoreObject.ScoreAmount;
+            int currency = scoreObject.PremiumCurrencyAmount;
+            GameObject.Find("GameStateHandler").GetComponent<GameOver>().EndGame(score, currency, true);
         }
 
 

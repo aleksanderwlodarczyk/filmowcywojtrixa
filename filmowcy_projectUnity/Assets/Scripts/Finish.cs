@@ -6,9 +6,11 @@ public class Finish : MonoBehaviour {
 
     private SceneManaging sceneManage;
     private GameOver gOver;
+    private Score scoreObject;
 
 	void Start () {
-		sceneManage = GameObject.Find("sceneHandler").GetComponent<SceneManaging>();
+        scoreObject = GameObject.Find("scoreHandler").GetComponent<Score>();
+        sceneManage = GameObject.Find("sceneHandler").GetComponent<SceneManaging>();
         gOver = GameObject.Find("GameStateHandler").GetComponent<GameOver>();
     }
 
@@ -17,8 +19,9 @@ public class Finish : MonoBehaviour {
         
         if(collision.gameObject.tag == "Player")
         {
-            int score = GameObject.Find("scoreHandler").GetComponent<Score>().ScoreAmount;
-            gOver.EndGame(score, false);
+            int score = scoreObject.ScoreAmount;
+            int currency = scoreObject.PremiumCurrencyAmount;
+            gOver.EndGame(score, currency, false);
         }
     }
 }
