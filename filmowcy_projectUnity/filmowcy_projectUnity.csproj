@@ -291,6 +291,7 @@
     <Compile Include="Assets\Scripts\Battery.cs" />
     <Compile Include="Assets\Scripts\BatteryCharge.cs" />
     <Compile Include="Assets\Scripts\BetterJump.cs" />
+    <Compile Include="Assets\Scripts\ButtonHighlighter.cs" />
     <Compile Include="Assets\Scripts\CamEffect.cs" />
     <Compile Include="Assets\Scripts\CameraFollowing.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
@@ -306,6 +307,7 @@
     <Compile Include="Assets\Scripts\KeyboardMovement.cs" />
     <Compile Include="Assets\Scripts\KillEnemy.cs" />
     <Compile Include="Assets\Scripts\KillPlayer.cs" />
+    <Compile Include="Assets\Scripts\MenuButton.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\SceneManaging.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
