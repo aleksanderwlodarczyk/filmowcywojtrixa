@@ -136,7 +136,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 108239362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -625.88153, y: 481.825, z: 0}
+  m_LocalPosition: {x: -625.8814, y: 481.825, z: 0}
   m_LocalScale: {x: 1.0000051, y: 1.0000051, z: 1.0000051}
   m_Children:
   - {fileID: 693717044}
@@ -215,9 +215,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonBackground: {fileID: 0}
   startButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonEnabled: 1
   levelTitle: level2test
   levelScore: 0
   levelID: 2
+  firebaseLevelID: 
   levelScreen: {fileID: 21300000, guid: 131bae3464e5b874b984e089c187bd37, type: 3}
 --- !u!1 &115940026
 GameObject:
@@ -319,7 +322,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 125778095}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -625.88153, y: -339.425, z: 0}
+  m_LocalPosition: {x: -625.8814, y: -339.425, z: 0}
   m_LocalScale: {x: 1.0000051, y: 1.0000051, z: 1.0000051}
   m_Children:
   - {fileID: 1129239980}
@@ -387,9 +390,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonBackground: {fileID: 0}
   startButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonEnabled: 1
   levelTitle: 
   levelScore: 0
   levelID: 0
+  firebaseLevelID: 
   levelScreen: {fileID: 0}
 --- !u!1 &178359501
 GameObject:
@@ -808,7 +814,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 462539171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -300.00003, y: -374.29065, z: 0}
+  m_LocalPosition: {x: -300.00003, y: -374.14294, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 898354340}
@@ -938,6 +944,11 @@ Prefab:
       propertyPath: loginAfterGet
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114778841101412962, guid: a618e903e06f62f45b87e953aed07f18,
+        type: 2}
+      propertyPath: users
+      value: 
+      objectReference: {fileID: 1841139002}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a618e903e06f62f45b87e953aed07f18, type: 2}
   m_IsPrefabParent: 0
@@ -1175,7 +1186,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 699760213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -625.88153, y: -175.17499, z: 0}
+  m_LocalPosition: {x: -625.8814, y: -175.17499, z: 0}
   m_LocalScale: {x: 1.0000051, y: 1.0000051, z: 1.0000051}
   m_Children:
   - {fileID: 1475452485}
@@ -1243,9 +1254,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonBackground: {fileID: 0}
   startButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonEnabled: 1
   levelTitle: 
   levelScore: 0
   levelID: 0
+  firebaseLevelID: 
   levelScreen: {fileID: 0}
 --- !u!1 &749989546
 GameObject:
@@ -1447,7 +1461,7 @@ Prefab:
     - target: {fileID: 224520172022298982, guid: b4eaa5b74a1e0e249b4641e153c958e8,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -625.88153
+      value: -625.8814
       objectReference: {fileID: 0}
     - target: {fileID: 224520172022298982, guid: b4eaa5b74a1e0e249b4641e153c958e8,
         type: 2}
@@ -1710,8 +1724,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105890690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 616.5, y: 347, z: 0}
-  m_LocalScale: {x: 0.6421875, y: 0.6421875, z: 0.6421875}
+  m_LocalPosition: {x: 622, y: 350, z: 0}
+  m_LocalScale: {x: 0.6479167, y: 0.6479167, z: 0.6479167}
   m_Children:
   - {fileID: 601284235}
   - {fileID: 1124117514}
@@ -1808,6 +1822,7 @@ GameObject:
   - component: {fileID: 1123511601}
   - component: {fileID: 1123511603}
   - component: {fileID: 1123511602}
+  - component: {fileID: 1123511604}
   m_Layer: 5
   m_Name: level_options
   m_TagString: Untagged
@@ -1876,6 +1891,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &1123511604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1123511600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b2fd01269b22f4ca18e21260229b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1124117513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,7 +1926,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1124117513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 926.00006, y: 20.049988, z: 0}
+  m_LocalPosition: {x: 926, y: 20.049988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2144231697}
@@ -2696,7 +2722,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1601453480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -625.88153, y: -10.924988, z: 0}
+  m_LocalPosition: {x: -625.8814, y: -10.924988, z: 0}
   m_LocalScale: {x: 1.0000051, y: 1.0000051, z: 1.0000051}
   m_Children:
   - {fileID: 1571923870}
@@ -2764,9 +2790,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonBackground: {fileID: 0}
   startButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonEnabled: 1
   levelTitle: 
   levelScore: 0
   levelID: 0
+  firebaseLevelID: 
   levelScreen: {fileID: 0}
 --- !u!1 &1622744028
 GameObject:
@@ -2981,7 +3010,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1818143096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -625.88153, y: 317.575, z: 0}
+  m_LocalPosition: {x: -625.8814, y: 317.575, z: 0}
   m_LocalScale: {x: 1.0000051, y: 1.0000051, z: 1.0000051}
   m_Children:
   - {fileID: 1499754348}
@@ -3049,10 +3078,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonBackground: {fileID: 0}
   startButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonEnabled: 1
   levelTitle: 
   levelScore: 0
   levelID: 0
+  firebaseLevelID: 
   levelScreen: {fileID: 0}
+--- !u!114 &1841139002 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114275534692005176, guid: c0dd9c05305dac34890c20be7631d31b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2094829868}
+  m_Script: {fileID: 11500000, guid: 5fd5e117e97bc974fb6285d55798785c, type: 3}
 --- !u!1 &1896670900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3219,7 +3257,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1951935229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -625.88153, y: 153.32501, z: 0}
+  m_LocalPosition: {x: -625.8814, y: 153.32501, z: 0}
   m_LocalScale: {x: 1.0000051, y: 1.0000051, z: 1.0000051}
   m_Children:
   - {fileID: 180346752}
@@ -3255,7 +3293,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3287,9 +3325,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonBackground: {fileID: 0}
   startButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonEnabled: 1
   levelTitle: 
   levelScore: 0
   levelID: 0
+  firebaseLevelID: 
   levelScreen: {fileID: 0}
 --- !u!1 &1966763819 stripped
 GameObject:
@@ -3385,9 +3426,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonBackground: {fileID: 0}
   startButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonEnabled: 1
   levelTitle: testing
   levelScore: 0
   levelID: 1
+  firebaseLevelID: 
   levelScreen: {fileID: 21300000, guid: b760a40f84504b14abe10168b9cbf570, type: 3}
 --- !u!1001 &2003674137
 Prefab:
@@ -3455,7 +3499,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2008442989}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -625.88153, y: -503.67496, z: 0}
+  m_LocalPosition: {x: -625.8814, y: -503.67496, z: 0}
   m_LocalScale: {x: 1.0000051, y: 1.0000051, z: 1.0000051}
   m_Children:
   - {fileID: 1896670901}
@@ -3523,9 +3567,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonBackground: {fileID: 0}
   startButtonColor: {r: 0, g: 0, b: 0, a: 0}
+  disabledColor: {r: 0, g: 0, b: 0, a: 0}
+  buttonEnabled: 1
   levelTitle: 
   levelScore: 0
   levelID: 0
+  firebaseLevelID: 
   levelScreen: {fileID: 0}
 --- !u!1 &2033098096
 GameObject:
@@ -3640,6 +3687,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114275534692005176, guid: c0dd9c05305dac34890c20be7631d31b,
+        type: 2}
+      propertyPath: progress
+      value: 
+      objectReference: {fileID: 1123511604}
+    - target: {fileID: 114275534692005176, guid: c0dd9c05305dac34890c20be7631d31b,
+        type: 2}
+      propertyPath: playingScene
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0dd9c05305dac34890c20be7631d31b, type: 2}
   m_IsPrefabParent: 0
@@ -3673,7 +3730,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2144231696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -300.00006, y: 433.39066, z: 0}
+  m_LocalPosition: {x: -300.00006, y: 433.24295, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1124117514}

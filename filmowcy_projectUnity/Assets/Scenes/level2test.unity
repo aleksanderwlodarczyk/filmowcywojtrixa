@@ -15609,6 +15609,11 @@ Prefab:
       propertyPath: leaderboard.Array.data[2]
       value: 
       objectReference: {fileID: 1077087112}
+    - target: {fileID: 114165217545814088, guid: cf3440846a6e3f54ba2af314eecd4372,
+        type: 2}
+      propertyPath: levelID
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf3440846a6e3f54ba2af314eecd4372, type: 2}
   m_IsPrefabParent: 0
@@ -15846,12 +15851,12 @@ Prefab:
     - target: {fileID: 224683288311373768, guid: c19f3993fc0903f44a8b0d347d80e37e,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 622
       objectReference: {fileID: 0}
     - target: {fileID: 224683288311373768, guid: c19f3993fc0903f44a8b0d347d80e37e,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 224683288311373768, guid: c19f3993fc0903f44a8b0d347d80e37e,
         type: 2}

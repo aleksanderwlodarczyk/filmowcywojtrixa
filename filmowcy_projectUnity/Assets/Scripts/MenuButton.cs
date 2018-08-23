@@ -7,6 +7,7 @@ public class MenuButton : MonoBehaviour {
 
     private Transform leftPanelTransform;
     private Button playButton;
+    private Button thisButton;
     private Text leftLevelTitle;
     private Text leftLevelScore;
     private Image leftLevelScreen;
@@ -20,16 +21,24 @@ public class MenuButton : MonoBehaviour {
     
     public Image buttonBackground;
     public Color startButtonColor;
+    public Color disabledColor;
 
+    public bool buttonEnabled = true;
     public string levelTitle;
     public int levelScore;
     public int levelID;
+
+    public string firebaseLevelID;
     
     [SerializeField]
     private Sprite levelScreen;
 
     private void Start()
     {
+        Invoke("SetButtonInteractable", 0.3f);
+
+        firebaseLevelID = "level" + levelID.ToString();
+        thisButton = gameObject.GetComponent<Button>();
         // find highlighter
         highlighter = GameObject.FindObjectOfType<ButtonHighlighter>().GetComponent<ButtonHighlighter>();
 
@@ -45,6 +54,7 @@ public class MenuButton : MonoBehaviour {
 
         // set button textes
         buttonLevelTitle.text = levelTitle;
+		buttonLevelScore.text = levelScore.ToString();
 
         // find left frame objects
         leftPanelTransform = GameObject.Find("left_frame").transform;
@@ -73,8 +83,30 @@ public class MenuButton : MonoBehaviour {
         playButton.onClick.AddListener(LoadMyLevel);
     }
 
+    public void SetButtonActive(bool value)
+    {
+        buttonEnabled = value;
+		thisButton.interactable = value;
+
+		buttonLevelTitle.color = value ? Color.white : disabledColor;
+		buttonLevelScore.color = value ? Color.white : disabledColor;
+	}
+
     public void LoadMyLevel()
     {
         scenes.LoadLevel(levelID);
     }
+
+    void SetButtonInteractable()
+    {
+        thisButton.interactable = buttonEnabled;
+
+        buttonLevelTitle.color = buttonEnabled ? Color.white : disabledColor;
+        buttonLevelScore.color = buttonEnabled ? Color.white : disabledColor;
+    }
+
+	public void ScoreUpdate()
+	{
+		buttonLevelScore.text = levelScore.ToString();
+	}
 }

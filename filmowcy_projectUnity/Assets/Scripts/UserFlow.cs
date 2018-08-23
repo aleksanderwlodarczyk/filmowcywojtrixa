@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
@@ -21,6 +22,8 @@ public class UserFlow : MonoBehaviour {
     private Player player;
     private Battery playerBattery;
     private FirebaseFlow firebase;
+
+    public Progress progress;
 
 	void Awake () {
         if (playingScene)
@@ -101,6 +104,7 @@ public class UserFlow : MonoBehaviour {
 
                 if (!userExist)
                 {
+                    Debug.Log("I have to register user");
                     RegisterUser(facebookID);
                 }
             }
@@ -163,13 +167,46 @@ public class UserFlow : MonoBehaviour {
             }
         });
 
-    }
+		FirebaseDatabase.DefaultInstance.GetReference("/users_progress/" + facebookID).GetValueAsync().ContinueWith(task =>
+		{
+			Debug.Log("task started");
+			if (task.IsFaulted) Debug.Log("error!");
+			else if (task.IsCompleted)
+			{
+				DataSnapshot snapshot = task.Result;
+				Debug.Log(snapshot.ChildrenCount);
+				IDictionary<string, object> data = (IDictionary<string, object>)snapshot.Value;
+
+				foreach (KeyValuePair<string, object> p in data)
+				{
+					Debug.Log("key " + p.Key);
+					Debug.Log("value" + int.Parse(p.Value.ToString()));
+
+					progress.levelScore.Add(p.Key, int.Parse(p.Value.ToString()));
+				}
+
+				//progress.SetProgress();
+			}
+			if (!userExist)
+			{
+				RegisterUser(facebookID);
+			}
+		});
+
+		//if (!userExist)
+		//{
+		//	Debug.Log("I have to register user");
+		//	RegisterUser(facebookID);
+		//}
+
+	}
 
     void RegisterUser(string facebookID)
     {
         //if user does not exist create record with value 0
         Debug.Log("regging user");
         firebase.SetUserMoney(facebookID, 0, false);
+        firebase.SetUserProgress(facebookID);
         firebase.SetUserItem(facebookID, "doubleJump", false);
         firebase.SetUserItem(facebookID, "extendedBattery", false);
         firebase.SetUserItem(facebookID, "oneHitShield", false);

@@ -8,13 +8,14 @@ public class FacebookFlow : MonoBehaviour {
     public string fbName;
     public string fbID;
     public bool loginAfterGet;
+    public UserFlow users;
 
     private bool APICalled;
 
-    void Start () {
+    void Awake () {
+        FB.Init();
         fbName = "";
         APICalled = false;
-        FB.Init();
     }
 
     private void Update()
@@ -64,7 +65,7 @@ public class FacebookFlow : MonoBehaviour {
         fbID = result.ResultDictionary["id"].ToString();
         if (loginAfterGet)
         {
-            GameObject.Find("Users").GetComponent<UserFlow>().LoginUser(fbID);
+            users.LoginUser(fbID);
         }
     }
 

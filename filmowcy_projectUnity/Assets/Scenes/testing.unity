@@ -5837,6 +5837,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1584514978117928, guid: c19f3993fc0903f44a8b0d347d80e37e,
     type: 2}
   m_PrefabInternal: {fileID: 1996866294}
+--- !u!114 &1406241235 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114275534692005176, guid: c0dd9c05305dac34890c20be7631d31b,
+    type: 2}
+  m_PrefabInternal: {fileID: 431726308}
+  m_Script: {fileID: 11500000, guid: 5fd5e117e97bc974fb6285d55798785c, type: 3}
 --- !u!114 &1435040324 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114165217545814088, guid: cf3440846a6e3f54ba2af314eecd4372,
@@ -6354,6 +6360,11 @@ Prefab:
       propertyPath: leaderboard.Array.data[2]
       value: 
       objectReference: {fileID: 294661125}
+    - target: {fileID: 114165217545814088, guid: cf3440846a6e3f54ba2af314eecd4372,
+        type: 2}
+      propertyPath: levelID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf3440846a6e3f54ba2af314eecd4372, type: 2}
   m_IsPrefabParent: 0
@@ -6401,6 +6412,11 @@ Prefab:
       propertyPath: loginAfterGet
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114778841101412962, guid: a618e903e06f62f45b87e953aed07f18,
+        type: 2}
+      propertyPath: users
+      value: 
+      objectReference: {fileID: 1406241235}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a618e903e06f62f45b87e953aed07f18, type: 2}
   m_IsPrefabParent: 0
@@ -6498,12 +6514,12 @@ Prefab:
     - target: {fileID: 224683288311373768, guid: c19f3993fc0903f44a8b0d347d80e37e,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 616.5
+      value: 622
       objectReference: {fileID: 0}
     - target: {fileID: 224683288311373768, guid: c19f3993fc0903f44a8b0d347d80e37e,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 347
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 224683288311373768, guid: c19f3993fc0903f44a8b0d347d80e37e,
         type: 2}

@@ -11,7 +11,7 @@ public class GameOver : MonoBehaviour {
 
 	public GameObject loseScreen;
     public List<Text> leaderboard = new List<Text>();
-
+    public int levelID;
 
     private DatabaseReference reference;
     private Battery battery;
@@ -69,6 +69,7 @@ public class GameOver : MonoBehaviour {
 
         Debug.Log("r Count: " + firebase.records);
         firebase.SetUserMoney(facebook.fbID, premiumCurrency, true);
+        firebase.SetUserProgress(facebook.fbID, levelID, score);
         //leaderboard.transform.GetChild(i).gameObject.GetComponent<Text>().text = firebase.RecordName(i+1) + "\t" + firebase.RecordScore(i+1).ToString();
     }
 

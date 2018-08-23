@@ -106,6 +106,24 @@ public class FirebaseFlow : MonoBehaviour {
         }
     }
 
+    public void SetUserProgress(string facebookID)
+    {
+        // temporary hard coded level count
+        int levelCount = 2;
+        string levelName = "";
+        for (int i = 0; i < levelCount; i++)
+        {
+            levelName = "level" + (i + 1).ToString();
+            FirebaseDatabase.DefaultInstance.GetReference("/users_progress/" + facebookID + "/" + levelName).SetValueAsync(-1);
+        }
+    }
+
+    public void SetUserProgress(string facebookID, int levelID, int score)
+    {
+        string levelName = "level" + levelID.ToString();
+        FirebaseDatabase.DefaultInstance.GetReference("/users_progress/" + facebookID + "/" + levelName).SetValueAsync(score);
+    }
+
     public void SetUserItem(string facebookID, string itemName, bool value)
     {
         if (value) FirebaseDatabase.DefaultInstance.GetReference("/items/" + facebookID + "/" + itemName).SetValueAsync(1);
