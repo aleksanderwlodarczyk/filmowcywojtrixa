@@ -12,8 +12,9 @@ public class UserFlow : MonoBehaviour {
     public int cash;
     public string loggedUser;
     public bool playingScene;
+    public bool shopScene;
 
-    public bool doubleJump;
+	public bool doubleJump;
     public bool extendedBat;
     public bool oneHitShield;
     public Task storeItemsChecking;
@@ -98,6 +99,10 @@ public class UserFlow : MonoBehaviour {
                         loggedUser = p.Key;
                         userExist = true;
                         cash = int.Parse(p.Value.ToString());
+						if (shopScene)
+						{
+							GameObject.FindObjectOfType<Shop>().Money = cash;
+						}
                         break;
                     }
                 }

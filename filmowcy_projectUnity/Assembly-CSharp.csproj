@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\SceneManaging.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Shop.cs" />
+    <Compile Include="Assets\Scripts\ShopButton.cs" />
     <Compile Include="Assets\Scripts\TouchController.cs" />
     <Compile Include="Assets\Scripts\UserFlow.cs" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />

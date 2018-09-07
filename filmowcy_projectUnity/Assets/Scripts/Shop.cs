@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour {
 
+	public int Money { get; set; }
+
 	void Start () {
 		
 	}
