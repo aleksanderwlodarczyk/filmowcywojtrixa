@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shop : MonoBehaviour {
 
 	public int Money { get; set; }
+	public FirebaseFlow firebase;  // to set money and items
 
 	void Start () {
 		
@@ -13,5 +14,12 @@ public class Shop : MonoBehaviour {
 
 	void Update () {
 		
+	}
+
+	public void BuyItem(int item)
+	{
+		//subtract money
+		//update money in firebase
+		//update items in firebase
 	}
 }
