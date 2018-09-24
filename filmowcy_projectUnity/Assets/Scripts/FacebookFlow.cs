@@ -29,8 +29,8 @@ public class FacebookFlow : MonoBehaviour {
 
     void FacebookConnect()
     {
-        var perms = new List<string>() { "public_profile" };
-        FB.LogInWithReadPermissions(perms, AuthCallback);
+		var perms = new List<string>() { "public_profile", "email" };
+		FB.LogInWithReadPermissions(perms, AuthCallback);
     }
 
     void AuthCallback(IResult result)
@@ -45,7 +45,8 @@ public class FacebookFlow : MonoBehaviour {
         }
         else
         {
-            Debug.Log("error");
+            Debug.Log("error" + result.Error);
+			
         }
     }
 

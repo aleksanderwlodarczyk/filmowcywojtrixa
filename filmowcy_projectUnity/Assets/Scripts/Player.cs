@@ -9,11 +9,15 @@ public class Player : MonoBehaviour {
     private Transform myTransform;
     private Transform camTransform;
     private Score scoreObject;
+	private FirebaseFlow firebase;
+	private UserFlow user;
 
-    private bool oneHitShield = false;
+	private bool oneHitShield = false;
     private GameObject shield;
 	void Start () {
-        scoreObject = GameObject.Find("scoreHandler").GetComponent<Score>();
+		firebase = GameObject.FindObjectOfType<FirebaseFlow>();
+		user = GameObject.FindObjectOfType<UserFlow>();
+		scoreObject = GameObject.Find("scoreHandler").GetComponent<Score>();
         camTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
         myTransform = gameObject.GetComponent<Transform>();
         checkpointPos = myTransform.position;
@@ -35,7 +39,9 @@ public class Player : MonoBehaviour {
         {
             oneHitShield = false;
             shield.SetActive(false);
-        }
+			firebase.SetUserItem(user.loggedUser, "oneHitShield", false);
+
+		}
         else
         {
             int score = scoreObject.ScoreAmount;
@@ -49,7 +55,28 @@ public class Player : MonoBehaviour {
         // camTransform.position = camCheckpointPos;
     }
 
-    public void SetCheckpoint()
+	public void Respawn(bool skipShield)
+	{
+		if (oneHitShield && !skipShield)
+		{
+			oneHitShield = false;
+			shield.SetActive(false);
+			firebase.SetUserItem(user.loggedUser, "oneHitShield", false);
+		}
+		else
+		{
+			int score = scoreObject.ScoreAmount;
+			int currency = scoreObject.PremiumCurrencyAmount;
+			GameObject.Find("GameStateHandler").GetComponent<GameOver>().EndGame(score, currency, true);
+		}
+
+
+		// gameObject.GetComponent<KeyboardMovement> ().ResetVerticalVelocity ();
+		// myTransform.position = checkpointPos;
+		// camTransform.position = camCheckpointPos;
+	}
+
+	public void SetCheckpoint()
     {
         checkpointPos = myTransform.position;
         camCheckpointPos = camTransform.position;

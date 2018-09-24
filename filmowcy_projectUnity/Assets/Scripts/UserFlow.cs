@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Firebase;
 using Firebase.Unity.Editor;
 using Firebase.Database;
@@ -18,6 +19,8 @@ public class UserFlow : MonoBehaviour {
     public bool extendedBat;
     public bool oneHitShield;
     public Task storeItemsChecking;
+	public Shop shop;
+	public Text buildDebug;
 
     private KeyboardMovement playerMovement;
     private Player player;
@@ -76,9 +79,11 @@ public class UserFlow : MonoBehaviour {
 
     public void LoginUser(string facebookID)
     {
-        //get cash from database
+		//get cash from database
         Debug.Log("logging user" + facebookID);
-        bool userExist = false;
+		if (buildDebug)
+			buildDebug.text += ("\nlogging user" + facebookID);
+		bool userExist = false;
         FirebaseDatabase.DefaultInstance.GetReference("/users_money").GetValueAsync().ContinueWith(task =>
         {
             Debug.Log("task started");
@@ -99,10 +104,6 @@ public class UserFlow : MonoBehaviour {
                         loggedUser = p.Key;
                         userExist = true;
                         cash = int.Parse(p.Value.ToString());
-						if (shopScene)
-						{
-							GameObject.FindObjectOfType<Shop>().Money = cash;
-						}
                         break;
                     }
                 }
@@ -192,17 +193,16 @@ public class UserFlow : MonoBehaviour {
 
 				//progress.SetProgress();
 			}
+
+		});
+
+		StartCoroutine(Delay(delegate ()
+		{
 			if (!userExist)
 			{
 				RegisterUser(facebookID);
 			}
-		});
-
-		//if (!userExist)
-		//{
-		//	Debug.Log("I have to register user");
-		//	RegisterUser(facebookID);
-		//}
+		}, 3f));
 
 	}
 
@@ -210,7 +210,9 @@ public class UserFlow : MonoBehaviour {
     {
         //if user does not exist create record with value 0
         Debug.Log("regging user");
-        firebase.SetUserMoney(facebookID, 0, false);
+		if (buildDebug)
+			buildDebug.text += ("\nregging user");
+		firebase.SetUserMoney(facebookID, 0, false);
         firebase.SetUserProgress(facebookID);
         firebase.SetUserItem(facebookID, "doubleJump", false);
         firebase.SetUserItem(facebookID, "extendedBattery", false);
@@ -218,5 +220,10 @@ public class UserFlow : MonoBehaviour {
         loggedUser = facebookID;
     }
 
+	IEnumerator Delay(Action method, float time)
+	{
+		yield return new WaitForSeconds(time);
+		method();
+	}
 
 }

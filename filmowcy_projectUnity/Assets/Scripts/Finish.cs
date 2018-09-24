@@ -6,7 +6,8 @@ public class Finish : MonoBehaviour {
 
     private SceneManaging sceneManage;
     private GameOver gOver;
-    private Score scoreObject;
+    public Score scoreObject;
+
 
 	void Start () {
         scoreObject = GameObject.Find("scoreHandler").GetComponent<Score>();

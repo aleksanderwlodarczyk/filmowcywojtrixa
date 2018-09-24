@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Firebase;
 using Firebase.Unity.Editor;
 using Firebase.Database;
@@ -11,6 +12,7 @@ public class FirebaseFlow : MonoBehaviour {
 
     private UserFlow user;
 
+	public Text buildDebug;
     public DatabaseReference reference;
     public int records;
 
@@ -18,12 +20,19 @@ public class FirebaseFlow : MonoBehaviour {
 		
 		FirebaseDatabase.DefaultInstance.GetReference("/scoreboard").GetValueAsync().ContinueWith(task =>
 		{
-			if(task.IsFaulted) Debug.Log("error!");
-			else if(task.IsCompleted){
+			if (task.IsFaulted)
+			{
+				Debug.Log("error!");
+				if (buildDebug)
+					buildDebug.text += "\nRecordsCount Error";
+			}
+			else if (task.IsCompleted)
+			{
 				DataSnapshot snapshot = task.Result;
-                Debug.Log((int)snapshot.ChildrenCount);
+				Debug.Log((int)snapshot.ChildrenCount);
 				records = (int)snapshot.ChildrenCount;
-                
+				if(buildDebug)
+					buildDebug.text += "\n" + records.ToString();
 			}
 		});
 	
@@ -95,6 +104,8 @@ public class FirebaseFlow : MonoBehaviour {
 
     public void SetUserMoney(string facebookID, int cash, bool adding)
     {
+		user.RefreshUsersMoney(user.loggedUser);
+
         if (adding)
         {
             int toSet = user.cash + cash;
@@ -109,12 +120,15 @@ public class FirebaseFlow : MonoBehaviour {
     public void SetUserProgress(string facebookID)
     {
         // temporary hard coded level count
-        int levelCount = 2;
+        int levelCount = 3;
         string levelName = "";
         for (int i = 0; i < levelCount; i++)
         {
-            levelName = "level" + (i + 1).ToString();
-            FirebaseDatabase.DefaultInstance.GetReference("/users_progress/" + facebookID + "/" + levelName).SetValueAsync(-1);
+            levelName = "level" + (i + 2).ToString();
+			if (i == 0)
+				FirebaseDatabase.DefaultInstance.GetReference("/users_progress/" + facebookID + "/" + levelName).SetValueAsync(0);
+			else
+				FirebaseDatabase.DefaultInstance.GetReference("/users_progress/" + facebookID + "/" + levelName).SetValueAsync(-1);
         }
     }
 

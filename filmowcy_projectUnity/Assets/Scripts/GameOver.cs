@@ -10,6 +10,7 @@ using Firebase.Database;
 public class GameOver : MonoBehaviour {
 
 	public GameObject loseScreen;
+	public bool lastLevel;
     public List<Text> leaderboard = new List<Text>();
     public int levelID;
 
@@ -30,6 +31,7 @@ public class GameOver : MonoBehaviour {
     private bool nextLevel;
 
     void Start () {
+
         leadersDownloaded = false;
 		firebase = GameObject.Find("Firebase").GetComponent<FirebaseFlow>();
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://filmowcy-wojtrixa.firebaseio.com/");
@@ -44,7 +46,9 @@ public class GameOver : MonoBehaviour {
         endBatteryText = loseScreen.transform.GetChild(5).gameObject.GetComponent<Text>();
         endScreenTitle = loseScreen.transform.GetChild(6).gameObject.GetComponent<Text>();
         sManager = GameObject.Find("sceneHandler").GetComponent<SceneManaging>();
-    }
+
+		//unlock current level
+	}
 
 	public void EndGame(int points, int premiumCurrency, bool died){
         if (died)
@@ -153,13 +157,33 @@ public class GameOver : MonoBehaviour {
         //string nick = "phone1debug";
         string nick = facebook.fbName;
 		firebase.SendRecord(nick, score);
-        if (nextLevel) sManager.LoadLevel(sManager.CurrentLevel + 1);
-        else sManager.LoadLevel(sManager.CurrentLevel);
+		if (nextLevel)
+		{
+			if (lastLevel)
+			{
+				sManager.LoadLevel(sManager.ShopLevelIndex);
+			}
+			else
+			{
+				sManager.LoadLevel(sManager.CurrentLevel + 1);
+			}
+		}
+		else sManager.LoadLevel(sManager.CurrentLevel);
     }
 
     public void NoSaveScore()
     {
-        if (nextLevel) sManager.LoadLevel(sManager.CurrentLevel + 1);
-        else sManager.LoadLevel(sManager.CurrentLevel);
+		if (nextLevel)
+		{
+			if (lastLevel)
+			{
+				sManager.LoadLevel(sManager.ShopLevelIndex);
+			}
+			else
+			{
+				sManager.LoadLevel(sManager.CurrentLevel + 1);
+			}
+		}
+		else sManager.LoadLevel(sManager.CurrentLevel);
     }
 }

@@ -2,9 +2,11 @@ Android
 PlayerPath?
 E:/GitHubRepositories/filmowcy_project/filmowcy_projectUnity/tembuild2018.apk
 SceneListBegin?
+Assets/Scenes/shopScene.unity
 Assets/Scenes/levelScene.unity
 Assets/Scenes/testing.unity
 Assets/Scenes/level2test.unity
+Assets/Scenes/level3.unity
 SceneListEnd?
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 f62d1e12c4ea2e5d19ca5a2c81b0bf32 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.TiltShift
@@ -24,7 +26,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 dc630769172d5da23b0f4a396ab55249 Assembly-CSharp.dll:.Collectable
 c08b196716247885d3b27f7f282b2568 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ImageEffectBase
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Player
-f1e7e34a60b9a4943e4f9ab046a391df Assembly-CSharp.dll:.GameOver
+0312dacf45f6d5f901c0da580a288743 Assembly-CSharp.dll:.GameOver
 a30beadf4d109f44144b9a9f42e61cbf Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.BlurOptimized
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Progress
 5fe337b1a5be127ed58ea7248b9ee360 Assembly-CSharp.dll:.CameraFollowing
@@ -106,7 +108,7 @@ c7578a8a83cfe6fe780351529bf6e7da Assembly-CSharp.dll:.AIAutoMove
 71778c9b45c50a65b865c5bc42204043 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.NoiseAndScratches
 cc897e31f90a455da1ad6fffc97043f1 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.Antialiasing
 af94149cf4bd04f72912ccd127a40702 Assembly-CSharp.dll:.FacebookFlow
-842d6885309060819942b985974de117 Assembly-CSharp.dll:.KillPlayer
+06eb165b0f18bcec93b13ea4dba4d47c Assembly-CSharp.dll:.KillPlayer
 05524b8f659e7bfe5756d1335fec24ba Firebase.Platform.dll:Firebase.Platform.FirebaseMonoBehaviour
 4a3934a2a273bfe3515633a97b658b54 Assembly-CSharp.dll:.KeyboardMovement
 a32f33d00a7a1fe2bf4c764c4b02d30d Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.BloomAndFlares
@@ -142,7 +144,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Score
 22df741b1a3c6d3b215ca28ad83c5a3f Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ScreenSpaceAmbientObscurance
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Shop
+a45db777d589c38049befa0468abe562 Assembly-CSharp.dll:.Shop
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 9865a0db77364f8930077972a1d5efab Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.BloomOptimized
@@ -158,14 +160,15 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.GraphRequest
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.LogView
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.ConsoleBase
-f14a08f480db1549b2315017f27e11ac Assembly-CSharp.dll:.FirebaseFlow
+2ff8cb1f20064c3ae1ec112542cd0cd6 Assembly-CSharp.dll:.FirebaseFlow
 88e745da281bc889e248b64cf4d72a54 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.SunShafts
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Floating
-82761e7d382939d87b5bc98f3dc737c4 Assembly-CSharp.dll:.UserFlow
+a9f838085eb95c39b424181527fb8b0f Assembly-CSharp.dll:.UserFlow
 cac5093fb1baf037bd671ecbc6727828 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ScreenOverlay
 9a4fc3cdcbc710a56956f7ef298974ac Assembly-CSharp.dll:.Battery
 7a52ed3603754c9175995d223a6a5588 Assembly-CSharp.dll:.GroundCheck
 30db6bf1abfbd17c6cdd1385b9eba6ca Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.DepthOfField
+eeca8242171cb4a5b6cfd2eefc7531d6 Assembly-CSharp.dll:.ShopButton
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.MainMenu
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.PostEffectsHelper
@@ -243,7 +246,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 c08b196716247885d3b27f7f282b2568 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.SepiaTone
 a51173280b81aed3c792da6e9cebc4cd Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.Twirl
 a51173280b81aed3c792da6e9cebc4cd Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.Vortex
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SceneManaging
+e97a8ac99122369e5579af808f0d15e2 Assembly-CSharp.dll:.SceneManaging
 2f264043a6bb59ca3369df5a4d180e17 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.CameraMotionBlur
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AppInvites
@@ -255,7 +258,7 @@ a51173280b81aed3c792da6e9cebc4cd Assembly-CSharp-firstpass.dll:UnityStandardAsse
 cafcd1a3c5a63aae81fd100ad1a989b8 Assembly-CSharp.dll:.MenuButton
 e2a8fd4524fc2a3a236b7e7720b544a6 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.EdgeDetection
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EffectsControlling
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Finish
+9456e272fbe12afc6dabb75968d01001 Assembly-CSharp.dll:.Finish
 b3432dfe180f02232d7612fb366593d3 Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.ColorCorrectionLookup
 cc03d32d84fe7de61c1ff011ce358a0c Assembly-CSharp-firstpass.dll:UnityStandardAssets.ImageEffects.Tonemapping
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Facebook.Unity.Example.AppRequests

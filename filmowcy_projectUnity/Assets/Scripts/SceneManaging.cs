@@ -6,8 +6,17 @@ using UnityEngine.SceneManagement;
 public class SceneManaging : MonoBehaviour {
 
     public int CurrentLevel { get { return SceneManager.GetActiveScene().buildIndex; } }
+	[SerializeField]
+	private int _shopLevelIndex;
+	public int ShopLevelIndex
+	{
+		get
+		{
+			return _shopLevelIndex;
+		}
+	}
 
-    public void LoadLevel(int index)
+	public void LoadLevel(int index)
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(index);
