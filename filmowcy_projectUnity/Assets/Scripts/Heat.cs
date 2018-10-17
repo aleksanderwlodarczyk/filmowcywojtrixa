@@ -17,9 +17,11 @@ public class Heat : MonoBehaviour {
 	private Rigidbody2D playerRb2D;
     private float temperature;
 	private bool cooling;
+	public bool heating;
 
 	void Start () {
 		cooling = false;
+		heating = true;
 		playerRb2D = GameObject.Find ("player").GetComponent<Rigidbody2D> ();
         overheated = false;
         temperature = startingTemperature;
@@ -27,22 +29,31 @@ public class Heat : MonoBehaviour {
 	
 	
 	void Update () {
-		if (!overheated) {
-			if (playerRb2D.velocity.magnitude != 0) {
-				temperature += Time.deltaTime * heatingMultiplier;
-			} else if(temperature > 23) {
-				temperature -= Time.deltaTime * coolingMultiplier;
+		if (heating)
+		{
+			if (!overheated)
+			{
+				if (playerRb2D.velocity.magnitude != 0)
+				{
+					temperature += Time.deltaTime * heatingMultiplier;
+				}
+				else if (temperature > 23)
+				{
+					temperature -= Time.deltaTime * coolingMultiplier;
+				}
+
+			}
+			else
+			{
+				if (!cooling)
+					StartCoroutine(Cooling());
 			}
 
-		} else {
-			if (!cooling)
-				StartCoroutine (Cooling ());
+			if (temperature > maxTemperature)
+				overheated = true;
+
+			UIText.text = Mathf.Round(temperature).ToString() + "°C";
 		}
-
-		if (temperature > maxTemperature)
-			overheated = true;
-
-        UIText.text = Mathf.Round(temperature).ToString() + "°C"; // print it to ui no debug
     }
 
 	IEnumerator Cooling(){

@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Battery.cs" />
     <Compile Include="Assets\Scripts\BatteryCharge.cs" />
     <Compile Include="Assets\Scripts\BetterJump.cs" />
+    <Compile Include="Assets\Scripts\BodyPickup.cs" />
     <Compile Include="Assets\Scripts\ButtonHighlighter.cs" />
     <Compile Include="Assets\Scripts\CamEffect.cs" />
     <Compile Include="Assets\Scripts\CameraFollowing.cs" />
