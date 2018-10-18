@@ -18,15 +18,15 @@ public class Heat : MonoBehaviour {
     private float temperature;
 	private bool cooling;
 	public bool heating;
+	private bool prePauseHeating;
 
 	void Start () {
 		cooling = false;
-		heating = true;
+		heating = false;
 		playerRb2D = GameObject.Find ("player").GetComponent<Rigidbody2D> ();
         overheated = false;
         temperature = startingTemperature;
     }
-	
 	
 	void Update () {
 		if (heating)
@@ -55,6 +55,17 @@ public class Heat : MonoBehaviour {
 			UIText.text = Mathf.Round(temperature).ToString() + "°C";
 		}
     }
+
+	public void PauseHeating()
+	{
+		prePauseHeating = heating;
+		heating = false;
+	}
+
+	public void ResumeHeating()
+	{
+		heating = prePauseHeating;
+	}
 
 	IEnumerator Cooling(){
 		cooling = true;

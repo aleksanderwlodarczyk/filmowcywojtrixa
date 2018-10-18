@@ -81,12 +81,14 @@
     <Compile Include="Assets\Scripts\CamEffect.cs" />
     <Compile Include="Assets\Scripts\CameraFollowing.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\CinematicHandler.cs" />
     <Compile Include="Assets\Scripts\Collectable.cs" />
     <Compile Include="Assets\Scripts\EffectsControlling.cs" />
     <Compile Include="Assets\Scripts\FacebookFlow.cs" />
     <Compile Include="Assets\Scripts\Finish.cs" />
     <Compile Include="Assets\Scripts\FirebaseFlow.cs" />
     <Compile Include="Assets\Scripts\Floating.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\GroundCheck.cs" />
     <Compile Include="Assets\Scripts\Heat.cs" />

@@ -39,12 +39,24 @@ public class AIAutoMove : MonoBehaviour{
 
 
 	void FixedUpdate(){
-		if ((dir == 1 && canGoRight) || (dir == -1 && canGoLeft))
-			rb2d.velocity = Vector3.right * speed * dir;
-		else {
-			rb2d.velocity = Vector3.zero;
+		if (!GameManager.IsPaused)
+		{
+			if ((dir == 1 && canGoRight) || (dir == -1 && canGoLeft))
+				rb2d.velocity = Vector3.right * speed * dir;
+			else
+			{
+				rb2d.velocity = Vector3.zero;
+			}
 		}
 
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.tag == "Enemy" && canGoLeft && canGoRight)
+		{
+			dir *= -1;
+		}
 	}
 
 	IEnumerator Randomizing(){

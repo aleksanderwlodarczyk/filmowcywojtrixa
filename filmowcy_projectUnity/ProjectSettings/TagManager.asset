@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
+  - Body
+  - Enemy
   layers:
   - Default
   - TransparentFX

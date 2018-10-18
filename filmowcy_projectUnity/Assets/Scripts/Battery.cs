@@ -33,18 +33,21 @@ public class Battery : MonoBehaviour {
     }
 	
 	void Update () {
-        power -= Time.deltaTime * 11;
-        
-        percentage = Mathf.RoundToInt((power / powerMax) * 100);
-        percentageText.text = percentage.ToString() + "%";
+		if (GameManager.IsPaused)
+		{
+			power -= Time.deltaTime * 11;
 
-        if (percentage > 75) batterySprite.sprite = batteryStates[4];
-        else if (percentage > 50 && percentage <= 75) batterySprite.sprite = batteryStates[3];
-        else if (percentage > 25 && percentage <= 50) batterySprite.sprite = batteryStates[2];
-        else if (percentage > 0 && percentage <= 25) batterySprite.sprite = batteryStates[1];
-        else if (percentage <= 0) batterySprite.sprite = batteryStates[0];
+			percentage = Mathf.RoundToInt((power / powerMax) * 100);
+			percentageText.text = percentage.ToString() + "%";
 
-        if (power <= 0) StartCoroutine(BatteryExhausted());
+			if (percentage > 75) batterySprite.sprite = batteryStates[4];
+			else if (percentage > 50 && percentage <= 75) batterySprite.sprite = batteryStates[3];
+			else if (percentage > 25 && percentage <= 50) batterySprite.sprite = batteryStates[2];
+			else if (percentage > 0 && percentage <= 25) batterySprite.sprite = batteryStates[1];
+			else if (percentage <= 0) batterySprite.sprite = batteryStates[0];
+
+			if (power <= 0) StartCoroutine(BatteryExhausted());
+		}
     }
 
     public void AddPower(float toAdd)

@@ -53,30 +53,39 @@ public class KeyboardMovement : MonoBehaviour {
         //comment this line below when building on Android
 		horizontal = Input.GetAxis ("Horizontal");
 
+		if (!GameManager.IsPaused)
+		{
+			if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
+			{
+				canSpeedUp = false;
 
-		if (Mathf.Abs (rb2d.velocity.x) > maxSpeed) {
-			canSpeedUp = false;
+			}
+			else
+				canSpeedUp = true;
 
-		}	else 
-			canSpeedUp = true;
+			if (rb2d.velocity.x * horizontal < 0)
+			{
+				realSpeed += Mathf.Abs(rb2d.velocity.x);
+			}
+			else
+				realSpeed = speed;
 
-		if (rb2d.velocity.x * horizontal < 0) {
-			realSpeed += Mathf.Abs (rb2d.velocity.x);
-		} else
-			realSpeed = speed;
+			if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+			{
+				StartJump();
+			}
 
-		if ((Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow))) {
-			StartJump ();
-		}
-	
-		if (Mathf.Abs(rb2d.velocity.y) > 0.1f && rb2d.gravityScale <= 3f) {
-			
-			rb2d.gravityScale += 0.07f;
-		}
+			if (Mathf.Abs(rb2d.velocity.y) > 0.1f && rb2d.gravityScale <= 3f)
+			{
+
+				rb2d.gravityScale += 0.07f;
+			}
 
 
-		if (horizontal == 0f) {
-			Break ();
+			if (horizontal == 0f)
+			{
+				Break();
+			}
 		}
 
     }

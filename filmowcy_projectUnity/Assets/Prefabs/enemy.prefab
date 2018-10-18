@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114289756704730460}
   m_Layer: 0
   m_Name: enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTrigger: 0
   onCollision: 1
+  skipShield: 0
 --- !u!114 &114751830213735730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,6 +325,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

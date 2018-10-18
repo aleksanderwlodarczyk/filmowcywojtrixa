@@ -18,56 +18,67 @@ public class CameraFollowing : MonoBehaviour {
 
 
 	void Update () {
-		offset = objectToFollow.transform.position - transform.position;
+		if (!GameManager.IsPaused)
+		{
+			offset = objectToFollow.transform.position - transform.position;
 
-		if (offset.x > xBorder && offset.y > yBorder) {
-			Vector3 offsetWhenChange = new Vector3 (xBorder, yBorder, offset.z);
-			transform.position = objectToFollow.transform.position - offsetWhenChange;
-			changingBoth = true;
+			if (offset.x > xBorder && offset.y > yBorder)
+			{
+				Vector3 offsetWhenChange = new Vector3(xBorder, yBorder, offset.z);
+				transform.position = objectToFollow.transform.position - offsetWhenChange;
+				changingBoth = true;
+			}
+
+			if (offset.x > xBorder && offset.y < -yBorder)
+			{
+				Vector3 offsetWhenChange = new Vector3(xBorder, -yBorder, offset.z);
+				transform.position = objectToFollow.transform.position - offsetWhenChange;
+				changingBoth = true;
+			}
+
+			if (offset.x < -xBorder && offset.y > yBorder)
+			{
+				Vector3 offsetWhenChange = new Vector3(-xBorder, yBorder, offset.z);
+				transform.position = objectToFollow.transform.position - offsetWhenChange;
+				changingBoth = true;
+			}
+
+			if (offset.x < -xBorder && offset.y < -yBorder)
+			{
+				Vector3 offsetWhenChange = new Vector3(-xBorder, -yBorder, offset.z);
+				transform.position = objectToFollow.transform.position - offsetWhenChange;
+				changingBoth = true;
+			}
+
+
+
+
+			if (offset.x > xBorder && !changingBoth)
+			{
+				Vector3 offsetWhenChange = new Vector3(xBorder, offset.y, offset.z);
+				transform.position = objectToFollow.transform.position - offsetWhenChange;
+			}
+
+			if (offset.x < -xBorder && !changingBoth)
+			{
+				Vector3 offsetWhenChange = new Vector3(-xBorder, offset.y, offset.z);
+				transform.position = objectToFollow.transform.position - offsetWhenChange;
+			}
+
+			if (offset.y > yBorder && !changingBoth)
+			{
+				Vector3 offsetWhenChange = new Vector3(offset.x, yBorder, offset.z);
+				transform.position = objectToFollow.transform.position - offsetWhenChange;
+			}
+
+			if (offset.y < -yBorder && !changingBoth)
+			{
+				Vector3 offsetWhenChange = new Vector3(offset.x, -yBorder, offset.z);
+				transform.position = objectToFollow.transform.position - offsetWhenChange;
+			}
+
+			changingBoth = false;
 		}
-
-		if (offset.x > xBorder && offset.y < -yBorder) {
-			Vector3 offsetWhenChange = new Vector3 (xBorder, -yBorder, offset.z);
-			transform.position = objectToFollow.transform.position - offsetWhenChange;
-			changingBoth = true;
-		}
-
-		if (offset.x < -xBorder && offset.y > yBorder) {
-			Vector3 offsetWhenChange = new Vector3 (-xBorder, yBorder, offset.z);
-			transform.position = objectToFollow.transform.position - offsetWhenChange;
-			changingBoth = true;
-		}
-
-		if (offset.x < -xBorder && offset.y < -yBorder) {
-			Vector3 offsetWhenChange = new Vector3 (-xBorder, -yBorder, offset.z);
-			transform.position = objectToFollow.transform.position - offsetWhenChange;
-			changingBoth = true;
-		}
-
-
-
-
-		if (offset.x > xBorder && !changingBoth) {
-			Vector3 offsetWhenChange = new Vector3 (xBorder, offset.y, offset.z);
-			transform.position = objectToFollow.transform.position - offsetWhenChange;
-		}
-
-		if (offset.x < -xBorder && !changingBoth) {
-			Vector3 offsetWhenChange = new Vector3 (-xBorder, offset.y, offset.z);
-			transform.position = objectToFollow.transform.position - offsetWhenChange;
-		}
-
-		if (offset.y > yBorder && !changingBoth) {
-			Vector3 offsetWhenChange = new Vector3 (offset.x, yBorder, offset.z);
-			transform.position = objectToFollow.transform.position - offsetWhenChange;
-		}
-
-		if (offset.y < -yBorder && !changingBoth) {
-			Vector3 offsetWhenChange = new Vector3 (offset.x, -yBorder, offset.z);
-			transform.position = objectToFollow.transform.position - offsetWhenChange;
-		}
-
-		changingBoth = false;
 	}
 
 }
